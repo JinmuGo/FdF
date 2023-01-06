@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 08:31:25 by jgo               #+#    #+#              #
-#    Updated: 2023/01/06 15:51:44 by jgo              ###   ########.fr        #
+#    Updated: 2023/01/06 15:51:58 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,10 @@ endif
 include $(TOPDIR)/config/Rules.mk
 include $(TOPDIR)/config/color_rules.mk
 
-SRCS = edit_map.c \
-		map_utils.c \
-		rotate_map.c \
-		draw_map.c \
-		draw_utils.c \
-		draw.c 
+SRCS = hook_utils.c \
+		hook_key_press.c
 
-NAME = libdraw.a
+NAME = libhooks.a
 
 CPPFLAGS = -I$(TOPDIR)/includes -I../includes
 LDFLAGS = -L$(TOPDIR)/lib
