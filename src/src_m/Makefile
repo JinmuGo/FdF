@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
+#    By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 14:05:59 by jgo               #+#    #+#              #
-#    Updated: 2023/01/06 15:51:19 by jgo              ###   ########.fr        #
+#    Updated: 2023/01/07 17:25:25 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,10 @@ NAME = $(FDF)
 MLX_PROCESS = install_name_tool -change libmlx.dylib $(TOPDIR)/lib/libmlx.dylib $(NAME)
 CPPFLAGS = -I$(TOPDIR)/includes -I./includes
 LDFLAGS = -L$(TOPDIR)/lib
-LDLIBS = -lftprintf -lft -lmlx -ldraw -lutils -lhooks -framework OpenGL -framework AppKit
+LDLIBS = -lftprintf -lft -lmlx -framework OpenGL -framework AppKit
 
 DIRS = draw hooks utils
+LIBS = $(addsuffix .a, $(addprefix lib/, $(DIRS)))
 
 HEADS = fdf.h \
 		error.h	\
@@ -51,7 +52,7 @@ all bonus :
 		$(MAKE) $(NAME)
 		$(Q)$(call color_printf,$(GREEN),$(FDF),✨ compiled!)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBS)
 	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
 	$(MLX_PROCESS)
 	$(MAKE) files="$(HEADS)" src_dir=`pwd`/includes dst_dir=$(TOPDIR)/includes link_files
