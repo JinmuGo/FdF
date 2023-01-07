@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:01:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 15:04:20 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 18:57:26 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // utils.c
 
 void	free_arr(char **arr);
+float	rotate_angle(float angle, float value);
 
 // input_utils.c
 

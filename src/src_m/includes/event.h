@@ -6,14 +6,17 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:35:34 by jgo               #+#    #+#             */
-/*   Updated: 2022/12/28 19:05:51 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 16:30:23 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EVENT_H
+# define EVENT_H
+
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
-# define BUTTON_PRESS 4
-# define BUTTON_RELEASE 5
+# define MOUSE_PRESS 4
+# define MOUSE_RELEASE 5
 # define MOTION_NOTIFY 6
 # define ENTER_NOTIFY 7
 # define LEAVE_NOTIFY 8
@@ -45,3 +48,5 @@
 #define MappingNotify           34
 #define GenericEvent            35
 #define LASTEvent               36   
+
+#endif

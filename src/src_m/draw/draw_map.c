@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:55:45 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 16:00:40 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 17:57:24 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,6 @@ void	draw_line(t_meta *meta, t_dot *projection)
 	size_t	i;
 
 	i = 0;
-	print_dot(projection, meta->map.total_len);
-	printf("max width: %f\n", meta->map.max.axis[X]);
-	printf("max width: %f\n", meta->map.max.axis[Y]);
 	while (i < meta->map.total_len)
 	{
 		if (projection[i].painted)
@@ -75,9 +72,10 @@ void	draw_line(t_meta *meta, t_dot *projection)
 	}
 }
 
-void draw(t_meta *meta, t_dot *projection)
+void draw(t_meta *meta, t_dot *projection, t_bool init)
 {
-    get_proper_scale(meta, projection);
+	if (init)
+    	get_proper_scale(meta, projection);
     draw_line(meta, projection);
     draw_dot(meta, projection);
 }

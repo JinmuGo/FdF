@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:22:56 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/05 07:00:40 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 18:51:13 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "declaration.h"
 #include "utils.h"
 #include "draw.h"
+#include "error.h"
 
 void	draw_background(t_meta *meta, int back_color)
 {
@@ -35,26 +36,25 @@ void	draw_background(t_meta *meta, int back_color)
 		axis[Y]++;
 	}	
 }
-/*
-void	draw_axis(t_meta *meta)
-{
+
+// void	draw_axis(t_meta *meta, float angle[3])
+// {
 	
+// }
 
-}
-*/
-
-
-void	draw_process(t_meta *meta)
+void	draw_process(t_meta *meta, t_bool init)
 {
 	t_dot *projection;
 
 	projection = malloc(meta->map.total_len * sizeof(t_dot));
-	// draw_axis(meta);
+	if (!projection)
+		err_terminate_process(ERR_ALLOCATE);
 	draw_background(meta, meta->map.color.back_color);
+	// draw_axis(meta, meta->map.angle);
 	copy_map(meta->map.dot, projection, meta->map.total_len);
 	edit_map(meta, projection);
 	
-	draw(meta, projection);
+	draw(meta, projection, init);
 	mlx_put_image_to_window(meta->mlx.mlx, meta->mlx.win, meta->img.img, 0, 0);	
 	free(projection);
 }

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 15:43:20 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 16:50:27 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_dot t_dot;
 typedef struct s_map t_map;
 typedef struct s_meta t_meta;
 typedef struct s_color t_color;
+typedef struct s_mouse t_mouse;
 
 struct s_mlx {
     void	*mlx;
@@ -62,6 +63,13 @@ struct	s_dot {
 	t_bool	painted;
 };
 
+struct	s_mouse {
+	t_bool	left_click;
+	t_bool	right_click;
+	t_dot	left;
+	t_dot	right;
+};
+
 struct	s_map {
 	t_dot	*dot;
 	t_dot	max;
@@ -76,6 +84,7 @@ struct s_meta {
     t_mlx   mlx;
 	t_img	img;
 	t_map	map;
+	t_mouse mouse;
 };
 
 // debug

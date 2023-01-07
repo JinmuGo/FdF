@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:02:08 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 17:11:45 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 18:57:15 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,14 @@ void	free_arr(char **arr)
 	while(arr[i])
 		free(arr[i++]);
 	free(arr);
+}
+
+float	rotate_angle(float angle, float value)
+{
+	angle += value;
+	if (angle < 0)
+			angle = 360 + angle;
+	if (angle >= 360)
+			angle = angle - 360;
+	return (angle);
 }

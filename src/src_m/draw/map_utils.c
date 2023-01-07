@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:10:04 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 17:11:23 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 16:00:21 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	get_proper_scale(t_meta *meta, t_dot *projection)
 	{
 		copy_map(meta->map.dot, projection, meta->map.total_len);
 		edit_map(meta, projection);
-		printf("scale: %f\n", meta->map.scale);
 		meta->map.scale = meta->map.scale + 0.2;
 	}
 }

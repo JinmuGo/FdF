@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:51:24 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 19:19:57 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 16:05:41 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	scale_map(t_dot *dot, int scale, size_t len)
 	}
 }
 
-void	centering_map(t_dot *dot, t_dot src, size_t len)
+void	move_map(t_dot *dot, t_dot src, size_t len)
 {
 	size_t	i;
 
@@ -72,6 +72,6 @@ void	edit_map(t_meta *meta, t_dot *projection)
 {
 	scale_map(projection, meta->map.scale, meta->map.total_len);
 	rotate_map(projection, meta->map.angle, meta->map.total_len);
-	centering_map(projection, meta->map.src, meta->map.total_len);
+	move_map(projection, meta->map.src, meta->map.total_len);
 	// move_map();
 }
