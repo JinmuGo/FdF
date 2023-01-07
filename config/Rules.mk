@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Rules.mk                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
+#    By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/05 14:02:20 by jgo               #+#    #+#              #
-#    Updated: 2023/01/03 10:06:34 by jgo              ###   ########.fr        #
+#    Updated: 2023/01/07 19:48:06 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,11 @@ endif
 # just compile
 ifdef JUST
 	CFLAGS = -MMD -MP
+endif
+
+# address
+ifdef ADDR
+	CFLAGS += -fsanitize=address
 endif
 
 link_files:: unlink_files

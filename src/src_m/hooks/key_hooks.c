@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 16:43:23 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 19:36:23 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	key_press(int key, t_meta *meta)
 {
     if (key == ESC)
-        success_terminate_program(meta);
+        success_terminate_process(meta);
 
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 21:14:46 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 18:43:41 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 19:45:25 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int ac, char **av)
 	const int	init_fd = open(av[1], O_RDONLY);
 	t_meta		meta;
 	// init_error_handler(); ?
-	atexit(mem_leaks);
+	// atexit(mem_leaks);
 	if (ac != 2)
 		err_terminate_process(ERR_ARGS);
 	if (init_fd < 2)
@@ -65,8 +65,10 @@ int	main(int ac, char **av)
 	mlx_hook(meta.mlx.win, MOUSE_PRESS, 0, mouse_press, &meta);
 	mlx_hook(meta.mlx.win, MOUSE_RELEASE, 0, mouse_release, &meta);
 	mlx_hook(meta.mlx.win, MOTION_NOTIFY, 0, mouse_move, &meta);
+	mlx_hook(meta.mlx.win, DESTROY_NOTIFY, 0, success_terminate_process, &meta);
 
 	// mlx_loop_hook() 지구본이 빙글빙글 돌아가는 걸 만들자! 
 	mlx_loop(meta.mlx.mlx);
+	free(meta.map.dot);
 	return (EXIT_SUCCESS);
 }

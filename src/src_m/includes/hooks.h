@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:44:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 17:35:35 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/07 19:35:00 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int mouse_move(int x, int y, t_meta *meta);
 
 // hooks_utils.c
 
-int	success_terminate_program(t_meta *meta);
+int	success_terminate_process(t_meta *meta);
 
 #endif
