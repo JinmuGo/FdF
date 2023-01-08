@@ -14,6 +14,7 @@
 #include "declaration.h"
 #include "color.h"
 #include "utils.h"
+#include "error.h"
 
 // void	print_str(t_meta *meta, int x, int y, char *str)
 // {
@@ -55,10 +56,10 @@ void	set_color(char *offset, int endian, int color, int alpha)
 {
 	if (endian)
 	{
-		offset[A] = alpha;
-		offset[R] = (color >> 16) & 0xFF;
-		offset[G] = (color >> 8) & 0xFF;
-		offset[B] = (color) & 0xFF;
+		offset[0] = alpha;
+		offset[1] = (color >> 16) & 0xFF;
+		offset[2] = (color >> 8) & 0xFF;
+		offset[3] = (color) & 0xFF;
 	}
 	else
 	{
@@ -81,3 +82,16 @@ void	my_dot_put(t_meta *meta, int x, int y, int color)
 	set_color(&meta->img.addr[offset], meta->img.endian, get_color(meta, color), alpha);
 }
 
+float	*get_color_array(float start, float mid, float end)
+{
+	float *arr;
+
+	arr = malloc(sizeof(float) * 3);
+	if (!arr)
+		err_terminate_process(ERR_ALLOCATE);
+	arr[0] = start;
+	arr[1] = mid;
+	arr[2] = end;
+
+	return (arr);
+}

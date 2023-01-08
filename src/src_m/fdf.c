@@ -40,6 +40,11 @@ void	init_metadata(t_meta *meta)
 		&meta->img.bits_per_pixel, &meta->img.line_length, &meta->img.endian);
 	meta->mouse.left_click = FALSE;
 	meta->mouse.right_click = FALSE;
+	meta->map.ratio = meta->map.max.axis[Z] / meta->map.max.axis[X];
+	if (meta->map.ratio > 0.5)
+		meta->map.z_divisor = meta->map.ratio * 20;
+	else
+		meta->map.z_divisor = 1;
 }
 
 void	mem_leaks(void)

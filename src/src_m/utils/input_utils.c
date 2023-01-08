@@ -29,22 +29,21 @@ t_bool	is_valid_dot(char *dot)
 		return (FALSE);
 }
 
-void	cal_z_max(t_dot *max, char **split_arr)
+void	cal_z(t_map *map, char **split_arr)
 {
 	int	i;
-	int	maximum;
+	int	num;
 
 	i = 0;
 	while (split_arr[i])
 	{
-		maximum = ft_atoi(&split_arr[i][0]);
-		if (max->axis[Z] < maximum)
-			max->axis[Z] = maximum;
-		// if (map->zmin > max) do i needed?
-		// 	map->zmin = max;
+		num = ft_atoi(&split_arr[i][0]);
+		if (map->max.axis[Z] < num)
+			map->max.axis[Z] = num;
+		if (map->z_min > num)
+			map->z_min = num;
 		if (!is_valid_dot(&split_arr[i][0]))
 			err_terminate_process(ERR_INVALID_MAP);
-			
 		i++;
 	}
 }

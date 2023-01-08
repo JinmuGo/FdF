@@ -17,6 +17,7 @@
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
+# define WIN_DIAGONAL 2203
 # define MENU_WIDTH 453
 
 # define MARGIN 50
@@ -25,11 +26,6 @@
 # define Y 1
 # define Z 2
 
-# define A 0
-# define R 1
-# define G 2
-# define B 3
-
 typedef struct s_mlx t_mlx;
 typedef struct s_img t_img;
 typedef struct s_dot t_dot;
@@ -37,6 +33,7 @@ typedef struct s_map t_map;
 typedef struct s_meta t_meta;
 typedef struct s_color t_color;
 typedef struct s_mouse t_mouse;
+typedef struct s_key t_key;
 
 struct s_mlx {
     void	*mlx;
@@ -47,6 +44,9 @@ struct s_color {
 	int	back_color;
 	int	menu_color;
 	int	text_color;
+	int	peak_color;
+	int	land_color;
+	int	bottom_color;
 };
 
 struct s_img {
@@ -70,11 +70,21 @@ struct	s_mouse {
 	t_dot	right;
 };
 
+struct s_key {
+	t_bool	dot;
+	t_bool	line;
+};
+
 struct	s_map {
 	t_dot	*dot;
 	t_dot	max;
+	t_dot	mid;
 	t_dot	src;
 	t_color	color;
+	t_key	key;
+	float	ratio;
+	float	z_divisor;
+	int		z_min;
 	size_t	total_len;
 	float	angle[3];
 	float	scale;

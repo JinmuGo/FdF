@@ -31,7 +31,7 @@ int mouse_press(int button, int x, int y, t_meta *meta)
 	}	
 	if (button == 4)
 	{
-		if (meta->map.scale > 2)
+		if (meta->map.scale > 10)
 			meta->map.scale /= 1.5;
 	}
 	if (button == 5)

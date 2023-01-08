@@ -66,12 +66,26 @@ void	rotate_map(t_dot *projection, float angle[3], size_t len)
 	}	
 }
 
+void	z_divide(t_dot *projection, float divisor, size_t len)
+{
+	size_t i;
+
+	if (divisor == 1)
+		return ;
+	i = 0;
+	while (i < len)
+	{
+		projection[i].axis[Z] /= divisor;
+		i++;
+	}
+}
+
 // scale rotate translate
 
 void	edit_map(t_meta *meta, t_dot *projection)
 {
+	z_divide(projection, meta->map.z_divisor ,meta->map.total_len);
 	scale_map(projection, meta->map.scale, meta->map.total_len);
 	rotate_map(projection, meta->map.angle, meta->map.total_len);
 	move_map(projection, meta->map.src, meta->map.total_len);
-	// move_map();
 }

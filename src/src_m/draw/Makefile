@@ -19,7 +19,6 @@ include $(TOPDIR)/config/color_rules.mk
 
 SRCS = edit_map.c \
 		map_utils.c \
-		rotate_map.c \
 		draw_map.c \
 		draw_utils.c \
 		draw.c 

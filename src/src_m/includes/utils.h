@@ -20,7 +20,7 @@ float	rotate_angle(float angle, float value);
 
 // input_utils.c
 
-void	cal_z_max(t_dot *max, char **split_arr);
+void	cal_z(t_map *map, char **split_arr);
 size_t	cal_line_len(char **split_arr);
 
 // draw_utils.c
@@ -29,6 +29,7 @@ int     get_color(t_meta *meta, int color);
 void	set_color(char *offset, int endian, int color, int alpha);
 int     get_offset(int x, int y, int line_length);
 void	my_dot_put(t_meta *meta, int x, int y, int color);
+float	*get_color_array(float start, float mid, float end);
 
 // map_utils.c
 
