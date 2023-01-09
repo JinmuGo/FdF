@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "declaration.h"
+#include "hooks.h"
 
 int	success_terminate_process(t_meta *meta)
 {
@@ -18,4 +19,16 @@ int	success_terminate_process(t_meta *meta)
 	free(meta->map.dot);
 
 	exit(EXIT_SUCCESS);
+}
+
+void	mouse_init(t_mouse *mouse)
+{
+	mouse->left_click = FALSE;
+	mouse->right_click = FALSE;
+	ft_bzero(&mouse->prev.axis, 3);
+}
+
+void	hook_init(t_meta *meta)
+{
+	mouse_init(&meta->mouse);
 }

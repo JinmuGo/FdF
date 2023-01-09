@@ -25,4 +25,8 @@ void draw(t_meta *meta, t_dot *projection, t_bool init);
 
 void	edit_map(t_meta *meta, t_dot *projection);
 
+// draw_status.c
+
+void    draw_status(t_meta *meta);
+
 #endif

@@ -14,8 +14,8 @@
 
 t_dot	mul3_mat(float matrix[3][3], t_dot dot)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 	t_dot   result;
 
 	result = dot;
@@ -55,7 +55,7 @@ void	matrix3_init(float (*matrix)[3])
 
 void    radian_init(float *rad, float angle[3])
 {
-    size_t i;
+    int i;
 
     i = 0;
     while (i < 3)

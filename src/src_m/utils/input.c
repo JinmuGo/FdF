@@ -21,8 +21,8 @@ void	init_map(t_map *map)
 	map->max.axis[X] = 0;
 	map->max.axis[Y] = 0;
 	map->max.axis[Z] = 0;
-	map->angle[X] = 50;
-	map->angle[Y] = -30;
+	map->angle[X] = 42;
+	map->angle[Y] = 15;
 	map->angle[Z] = 0;
 	map->z_min = 0;
 	map->key.dot = TRUE;
@@ -31,8 +31,9 @@ void	init_map(t_map *map)
 	map->color.text_color = TEXT_COLOR;
 	map->color.land_color = LAND_COLOR;
 	map->color.peak_color = PEAK_COLOR;
+	map->color.menu_color = MENU_COLOR;
 	map->color.bottom_color = BOTTOM_COLOR;
-	map->src.axis[X] = ((WIN_WIDTH) / 2);
+	map->src.axis[X] = ((WIN_WIDTH + MENU_WIDTH) / 2);
 	map->src.axis[Y] = WIN_HEIGHT / 2;
 	map->src.axis[Z] = 0;
 	map->scale = 1;
@@ -66,23 +67,26 @@ int	gradient(int start_color, int end_color, const float arr[3])
 
 int	init_color(t_map *map, t_dot dot)
 {
-	const float *arr = get_color_array(map->z_min, dot.axis[Z], map->max.axis[Z]);
+	float	color_arr[3];
 
-	if (arr[1] == 0)
+	color_arr[MIN] = map->z_min;
+	color_arr[MID] = dot.axis[Z];
+	color_arr[MAX] = map->max.axis[Z];
+	if (color_arr[MID] == 0)
 		return (map->color.land_color);
-	if (arr[1] == arr[2])
+	if (color_arr[MID] == color_arr[MAX])
 		return (map->color.peak_color);
-	if (arr[0] == arr[1] && arr[0] != 0)
+	if (color_arr[MIN] == color_arr[MID] && color_arr[MIN] != 0)
 		return (map->color.bottom_color);
-	if (arr[1] > 0)
-		return (gradient(map->color.land_color, map->color.peak_color, arr));
-	return (gradient(map->color.peak_color, map->color.land_color, arr));
+	if (color_arr[MID] > 0)
+		return (gradient(map->color.land_color, map->color.peak_color, color_arr));
+	return (gradient(map->color.peak_color, map->color.land_color, color_arr));
 }
 
-void	init_dot(char *line, t_map *map, size_t height)
+void	init_dot(char *line, t_map *map, int height)
 {
 	char	**split_arr;
-	size_t	i;
+	int	i;
 
 	split_arr = ft_split(line, ' ');
 	i = 0;
@@ -99,12 +103,12 @@ void	init_dot(char *line, t_map *map, size_t height)
 	free_arr(split_arr);
 }
 
-size_t	cal_map(t_map *map, int fd)
+int	cal_map(t_map *map, int fd)
 {
 	char	*line;
 	char	**split_arr;
-	size_t	line_len;
-	size_t	total_len;
+	int	line_len;
+	int	total_len;
 
 	total_len = 0;
 	line = get_next_line(fd);
@@ -129,10 +133,10 @@ size_t	cal_map(t_map *map, int fd)
 
 void    parsing_map(t_map *map, const char *path, int fd)
 {
-	const size_t	map_size = cal_map(map, fd);
-	const int		reopen_fd = open(path, O_RDONLY);
-	size_t			height;
-	char			*line;
+	const int	map_size = cal_map(map, fd);
+	const int	reopen_fd = open(path, O_RDONLY);
+	int			height;
+	char		*line;
 
 	if (reopen_fd < 2)
 		err_terminate_process(ERR_PATH_OPEN);
@@ -157,7 +161,7 @@ t_bool	verify_path(const char *path)
 	const char **split_arr = (const char **)ft_split(path, '/');
 	char **	surfix_arr;
 	t_bool	return_val;
-	size_t	i;
+	int	i;
 
 	if (!split_arr)
 		return (FALSE);
@@ -182,6 +186,5 @@ void	input_process(t_map *map, const char *path, int fd)
 	init_map(map);
 	if(!verify_path(path))
 		err_terminate_process(ERR_INVALID_PATH);
-	parsing_map(map, path ,fd);
-	
+	parsing_map(map, path ,fd);	
 }

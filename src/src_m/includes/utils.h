@@ -21,7 +21,7 @@ float	rotate_angle(float angle, float value);
 // input_utils.c
 
 void	cal_z(t_map *map, char **split_arr);
-size_t	cal_line_len(char **split_arr);
+int	cal_line_len(char **split_arr);
 
 // draw_utils.c
 
@@ -35,7 +35,7 @@ float	*get_color_array(float start, float mid, float end);
 
 void	edit_map(t_meta *meta, t_dot *projection);
 void	get_proper_scale(t_meta *meta, t_dot *projection);
-void	copy_map(t_dot *src, t_dot *dst, size_t len);
+void	copy_map(t_dot *src, t_dot *dst, int len);
 t_bool	invalid_dot(int x, int y);
 
 #endif

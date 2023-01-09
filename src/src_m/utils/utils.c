@@ -14,7 +14,7 @@
 
 void	free_arr(char **arr)
 {
-	size_t	i;
+	int	i;
 
 	if (!arr)
 		return ;
@@ -28,8 +28,8 @@ float	rotate_angle(float angle, float value)
 {
 	angle += value;
 	if (angle < 0)
-			angle = 360 + angle;
+		angle += 360;
 	if (angle >= 360)
-			angle = angle - 360;
+		angle -= 360;
 	return (angle);
 }

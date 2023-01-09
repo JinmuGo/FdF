@@ -16,7 +16,7 @@
 
 t_bool	is_valid_dot(char *dot)
 {
-	size_t i;
+	int i;
 
 	i = 0;
 	if (dot[i] == '-' || dot[i] == '+')
@@ -48,9 +48,9 @@ void	cal_z(t_map *map, char **split_arr)
 	}
 }
 
-size_t	cal_line_len(char **split_arr)
+int	cal_line_len(char **split_arr)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
 	while (split_arr[len] && split_arr[len][0] != '\n')

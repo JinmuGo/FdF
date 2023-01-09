@@ -21,6 +21,7 @@ SRCS = edit_map.c \
 		map_utils.c \
 		draw_map.c \
 		draw_utils.c \
+		draw_status.c \
 		draw.c 
 
 NAME = draw.a

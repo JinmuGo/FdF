@@ -17,7 +17,7 @@ endif
 include $(TOPDIR)/config/Rules.mk
 include $(TOPDIR)/config/color_rules.mk
 
-LIBS = libft ft_printf minilibx_mms_20210621
+LIBS = libft ft_printf minilibx_macos
 
 all bonus clean fclean re:
 		$(Q)$(foreach lib, $(LIBS), $(MAKE) TOPDIR=$(TOPDIR) -C $(lib) $@;)

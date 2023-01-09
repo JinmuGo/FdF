@@ -13,9 +13,9 @@
 #include "declaration.h"
 #include "matrix.h"
 
-void	scale_map(t_dot *dot, int scale, size_t len)
+void	scale_map(t_dot *dot, int scale, int len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < len)
@@ -27,9 +27,9 @@ void	scale_map(t_dot *dot, int scale, size_t len)
 	}
 }
 
-void	move_map(t_dot *dot, t_dot src, size_t len)
+void	move_map(t_dot *dot, t_dot src, int len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < len)
@@ -41,9 +41,9 @@ void	move_map(t_dot *dot, t_dot src, size_t len)
 	}
 }
 
-void	rotate_map(t_dot *projection, float angle[3], size_t len)
+void	rotate_map(t_dot *projection, float angle[3], int len)
 {
-	size_t	i;
+	int	i;
 	float	matrix3[3][3];
 	float	rad3[3];
 
@@ -66,9 +66,9 @@ void	rotate_map(t_dot *projection, float angle[3], size_t len)
 	}	
 }
 
-void	z_divide(t_dot *projection, float divisor, size_t len)
+void	z_divide(t_dot *projection, float divisor, int len)
 {
-	size_t i;
+	int i;
 
 	if (divisor == 1)
 		return ;

@@ -16,7 +16,7 @@
 
 void	draw_dot(t_meta *meta, t_dot *dot)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < meta->map.total_len)
@@ -26,17 +26,17 @@ void	draw_dot(t_meta *meta, t_dot *dot)
 	}
 }
 
-size_t	delta_init(t_dot delta, t_dot start, t_dot end)
+int	delta_init(t_dot *delta, t_dot start, t_dot end)
 {
-	size_t	dis;
+	int	dis;
 
-	delta.axis[X] = end.axis[X] - start.axis[X];
-	delta.axis[Y] = end.axis[Y] - start.axis[Y];
-	delta.axis[Z] = end.axis[Z] - start.axis[Z];
-	dis = sqrt((delta.axis[X] * delta.axis[X]) + (delta.axis[Y] * delta.axis[Y]));
-	delta.axis[X] /= dis;
-	delta.axis[Y] /= dis;
-	delta.axis[Z] /= dis;
+	delta->axis[X] = end.axis[X] - start.axis[X];
+	delta->axis[Y] = end.axis[Y] - start.axis[Y];
+	delta->axis[Z] = end.axis[Z] - start.axis[Z];
+	dis = sqrt((delta->axis[X] * delta->axis[X]) + (delta->axis[Y] * delta->axis[Y]));
+	delta->axis[X] /= dis;
+	delta->axis[Y] /= dis;
+	delta->axis[Z] /= dis;
 	return (dis);
 }
 
@@ -44,33 +44,37 @@ void	draw_dot_between(t_meta *meta, t_dot start, t_dot end)
 {
 	t_dot	delta;
 	t_dot	index;
-	size_t	len;
+	int	len;
+	float color_arr[3];
 	
-	len = delta_init(delta, start, end);
 	if (invalid_dot(start.axis[X], start.axis[Y]) && invalid_dot(end.axis[X], end.axis[Y]))
 		return ;
+	len = delta_init(&delta, start, end);
 	index = start;
+	color_arr[0] = start.axis[Z];
+	color_arr[1] = index.axis[Z];
+	color_arr[2] = end.axis[Z];
 	while (len)
 	{
-		index.color = gradient(start.color, end.color, get_color_array(start.axis[Z], index.axis[Z], end.axis[Z]));
+		index.color = gradient(start.color, end.color, color_arr);
 		my_dot_put(meta, index.axis[X], index.axis[Y], index.color);
 		index.axis[X] += delta.axis[X];
 		index.axis[Y] += delta.axis[Y];
-		index.axis[Z] += delta.axis[Z];
+		color_arr[1] += delta.axis[Z];
 		len--;
 	}
 }
 
 void	draw_line(t_meta *meta, t_dot *projection)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < meta->map.total_len)
 	{
 		if (projection[i].painted)
 		{
-			if ((i + 1) % (size_t)meta->map.max.axis[X] != 0)
+			if ((i + 1) % (int)meta->map.max.axis[X] != 0)
 			{
 				draw_dot_between(meta, projection[i], projection[i + 1]);
 			}
@@ -85,8 +89,8 @@ void draw(t_meta *meta, t_dot *projection, t_bool init)
 {
 	if (init)
     	get_proper_scale(meta, projection);
-	if (meta->map.key.dot)
-		draw_dot(meta, projection);
+	// if (meta->map.key.dot)
+	// 	draw_dot(meta, projection);
 	if (meta->map.key.line)
     	draw_line(meta, projection);
 }

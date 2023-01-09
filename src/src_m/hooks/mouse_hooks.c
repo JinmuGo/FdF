@@ -14,29 +14,33 @@
 #include "declaration.h"
 #include "draw.h"
 #include "utils.h"
+#include "event.h"
 
 int mouse_press(int button, int x, int y, t_meta *meta)
 {
+	x++;
+	y++;
     if (button == 1)
 	{
 		meta->mouse.left_click = TRUE;
-		meta->mouse.left.axis[X] = x;
-		meta->mouse.left.axis[Y] = y;
 	}
 	if (button == 2)
 	{
 		meta->mouse.right_click = TRUE;
-		meta->mouse.right.axis[X] = x;
-		meta->mouse.right.axis[Y] = y;
 	}	
 	if (button == 4)
 	{
 		if (meta->map.scale > 10)
+		{
 			meta->map.scale /= 1.5;
+    		draw_process(meta, FALSE);
+		}
 	}
 	if (button == 5)
+	{
 		meta->map.scale *= 1.5;
-    draw_process(meta, FALSE);
+		draw_process(meta, FALSE);
+	}
     return (0);
 };
 
@@ -57,20 +61,25 @@ int mouse_move(int x, int y, t_meta *meta)
 		return (0);
 	if (meta->mouse.left_click)
 	{
-		meta->map.angle[X] = rotate_angle(meta->map.angle[X], ((int)meta->mouse.left.axis[X] - x));
-		meta->map.angle[Y] = rotate_angle(meta->map.angle[Y], ((int)meta->mouse.left.axis[Y] - y));
-		meta->mouse.left.axis[X] = x;
-		meta->mouse.left.axis[Y] = y;
+		meta->map.angle[X] = rotate_angle(meta->map.angle[X], ((int)meta->mouse.prev.axis[Y] - y));
+		meta->map.angle[Y] = rotate_angle(meta->map.angle[Y], -((int)meta->mouse.prev.axis[X] - x));
 		draw_process(meta, FALSE);
 	}
     if (meta->mouse.right_click)
 	{
-		meta->map.src.axis[X] -= ((int)meta->mouse.right.axis[X] - x);
-		meta->map.src.axis[Y] -= ((int)meta->mouse.right.axis[Y] - y);
+		meta->map.src.axis[X] -= ((int)meta->mouse.prev.axis[X] - x);
+		meta->map.src.axis[Y] -= ((int)meta->mouse.prev.axis[Y] - y);
 		meta->map.src.axis[Z] = 0;
-		meta->mouse.right.axis[X] = x;
-		meta->mouse.right.axis[Y] = y;
 		draw_process(meta, FALSE);
 	}
+	meta->mouse.prev.axis[X] = x;
+	meta->mouse.prev.axis[Y] = y;
     return (0);
+}
+
+void	mouse_hooks(t_meta *meta)
+{
+	mlx_hook(meta->mlx.win, MOUSE_PRESS, 0, mouse_press, meta);
+	mlx_hook(meta->mlx.win, MOUSE_RELEASE, 0, mouse_release, meta);
+	mlx_hook(meta->mlx.win, MOTION_NOTIFY, 0, mouse_move, meta);
 }

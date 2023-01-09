@@ -19,10 +19,12 @@
 #include "draw.h"
 #include "error.h"
 
-void	draw_background(t_meta *meta, int back_color)
+void	draw_background(t_meta *meta, int back_color, int menu_color)
 {
 	int	axis[2];
+	int	draw_color;
 
+	menu_color = get_color(meta, menu_color);
 	back_color = get_color(meta, back_color);
 	axis[Y] = 0;
 	while (axis[Y] < WIN_HEIGHT)
@@ -30,7 +32,11 @@ void	draw_background(t_meta *meta, int back_color)
 		axis[X] = 0;
 		while (axis[X] < WIN_WIDTH)
 		{
-			my_dot_put(meta, axis[X], axis[Y], back_color);
+			if (axis[X] < MENU_WIDTH)
+				draw_color = menu_color;
+			else
+				draw_color = back_color;
+			my_dot_put(meta, axis[X], axis[Y], draw_color);
 			axis[X]++;
 		}
 		axis[Y]++;
@@ -49,12 +55,13 @@ void	draw_process(t_meta *meta, t_bool init)
 	projection = malloc(meta->map.total_len * sizeof(t_dot));
 	if (!projection)
 		err_terminate_process(ERR_ALLOCATE);
-	draw_background(meta, meta->map.color.back_color);
+	draw_background(meta, meta->map.color.back_color, meta->map.color.menu_color);
 	// draw_axis(meta, meta->map.angle);
 	copy_map(meta->map.dot, projection, meta->map.total_len);
 	edit_map(meta, projection);
 	
 	draw(meta, projection, init);
-	mlx_put_image_to_window(meta->mlx.mlx, meta->mlx.win, meta->img.img, 0, 0);	
+	mlx_put_image_to_window(meta->mlx.mlx, meta->mlx.win, meta->img.img, 0, 0);
+	draw_status(meta);
 	free(projection);
 }

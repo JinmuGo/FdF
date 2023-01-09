@@ -16,20 +16,6 @@
 #include "utils.h"
 #include "error.h"
 
-// void	print_str(t_meta *meta, int x, int y, char *str)
-// {
-// 	mlx_string_put(meta->vars.mlx, meta->vars.win, x, y, TEXT_COLOR, str);
-// }
-
-// void	print_nbr(t_meta *meta, int x, int y, int nbr)
-// {
-// 	char	*str;
-
-// 	str = ft_itoa(nbr);
-// 	mlx_string_put(meta->vars.mlx, meta->vars.win, x, y, NUMBER_COLOR, str);
-// 	free (str);
-// }
-
 t_bool	invalid_dot(int x, int y)
 {
 	if (x < 0 || x > WIN_WIDTH)
@@ -80,18 +66,4 @@ void	my_dot_put(t_meta *meta, int x, int y, int color)
 	offset = get_offset(x, y, meta->img.line_length);
 	alpha = 1;
 	set_color(&meta->img.addr[offset], meta->img.endian, get_color(meta, color), alpha);
-}
-
-float	*get_color_array(float start, float mid, float end)
-{
-	float *arr;
-
-	arr = malloc(sizeof(float) * 3);
-	if (!arr)
-		err_terminate_process(ERR_ALLOCATE);
-	arr[0] = start;
-	arr[1] = mid;
-	arr[2] = end;
-
-	return (arr);
 }

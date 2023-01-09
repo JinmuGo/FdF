@@ -17,8 +17,7 @@
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
-# define WIN_DIAGONAL 2203
-# define MENU_WIDTH 453
+# define MENU_WIDTH 350
 
 # define MARGIN 50
 
@@ -66,8 +65,7 @@ struct	s_dot {
 struct	s_mouse {
 	t_bool	left_click;
 	t_bool	right_click;
-	t_dot	left;
-	t_dot	right;
+	t_dot	prev;
 };
 
 struct s_key {
@@ -85,7 +83,7 @@ struct	s_map {
 	float	ratio;
 	float	z_divisor;
 	int		z_min;
-	size_t	total_len;
+	int	total_len;
 	float	angle[3];
 	float	scale;
 };
@@ -99,6 +97,6 @@ struct s_meta {
 
 // debug
 
-void	print_dot(t_dot *dot, size_t total_len);
+void	print_dot(t_dot *dot, int total_len);
 
 #endif

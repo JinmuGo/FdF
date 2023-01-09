@@ -30,6 +30,10 @@
 # define LAND_COLOR	LEMON_MERINGUE
 # define BOTTOM_COLOR	ENDLESS_SEA
 
+# define MIN 0
+# define MID 1
+# define MAX 2
+
 int	gradient(int start_color, int end_color, const float arr[3]);
 
 #endif

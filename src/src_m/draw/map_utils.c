@@ -13,9 +13,9 @@
 #include "declaration.h"
 #include "draw.h"
 
-t_bool	get_profit_scale(t_dot *dot, size_t len)
+t_bool	get_profit_scale(t_dot *dot, int len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < len)
@@ -31,9 +31,9 @@ t_bool	get_profit_scale(t_dot *dot, size_t len)
 	return (TRUE);
 }
 
-void	copy_map(t_dot *src, t_dot *dst, size_t len)
+void	copy_map(t_dot *src, t_dot *dst, int len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < len)
@@ -46,7 +46,7 @@ void	copy_map(t_dot *src, t_dot *dst, size_t len)
 
 void	get_proper_scale(t_meta *meta, t_dot *projection)
 {
-	meta->map.src.axis[X] = ((WIN_WIDTH) / 2);
+	meta->map.src.axis[X] = ((WIN_WIDTH + MENU_WIDTH) / 2);
 	meta->map.src.axis[Y] = WIN_HEIGHT / 2;
 	meta->map.src.axis[Z] = 0;
 	meta->map.scale = 1;
