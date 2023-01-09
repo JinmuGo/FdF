@@ -26,26 +26,30 @@ void	draw_dot(t_meta *meta, t_dot *dot)
 	}
 }
 
+size_t	delta_init(t_dot delta, t_dot start, t_dot end)
+{
+	size_t	dis;
+
+	delta.axis[X] = end.axis[X] - start.axis[X];
+	delta.axis[Y] = end.axis[Y] - start.axis[Y];
+	delta.axis[Z] = end.axis[Z] - start.axis[Z];
+	dis = sqrt((delta.axis[X] * delta.axis[X]) + (delta.axis[Y] * delta.axis[Y]));
+	delta.axis[X] /= dis;
+	delta.axis[Y] /= dis;
+	delta.axis[Z] /= dis;
+	return (dis);
+}
+
 void	draw_dot_between(t_meta *meta, t_dot start, t_dot end)
 {
 	t_dot	delta;
 	t_dot	index;
 	size_t	len;
-	size_t	dis;
 	
+	len = delta_init(delta, start, end);
 	if (invalid_dot(start.axis[X], start.axis[Y]) && invalid_dot(end.axis[X], end.axis[Y]))
 		return ;
-	delta.axis[X] = end.axis[X] - start.axis[X];
-	delta.axis[Y] = end.axis[Y] - start.axis[Y];
-	delta.axis[Z] = end.axis[Z] - start.axis[Z];
-	dis = sqrt((delta.axis[X] * delta.axis[X]) + (delta.axis[Y] * delta.axis[Y]));
-	len = dis;
-	delta.axis[X] /= dis;
-	delta.axis[Y] /= dis;
-	delta.axis[Z] /= dis;
-	index.axis[X] = start.axis[X];
-	index.axis[Y] = start.axis[Y];
-	index.axis[Z] = start.axis[Z];
+	index = start;
 	while (len)
 	{
 		index.color = gradient(start.color, end.color, get_color_array(start.axis[Z], index.axis[Z], end.axis[Z]));

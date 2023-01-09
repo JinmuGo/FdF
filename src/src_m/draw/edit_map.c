@@ -20,9 +20,9 @@ void	scale_map(t_dot *dot, int scale, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		dot[i].axis[X] = dot[i].axis[X] * scale;
-		dot[i].axis[Y] = dot[i].axis[Y] * scale;
-		dot[i].axis[Z] = dot[i].axis[Z] * scale;
+		dot[i].axis[X] *= scale;
+		dot[i].axis[Y] *= scale;
+		dot[i].axis[Z] *= scale;
 		i++;
 	}
 }
@@ -34,9 +34,9 @@ void	move_map(t_dot *dot, t_dot src, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		dot[i].axis[X] = dot[i].axis[X] + src.axis[X];
-		dot[i].axis[Y] = dot[i].axis[Y] + src.axis[Y];
-		dot[i].axis[Z] = dot[i].axis[Z] + src.axis[Z];
+		dot[i].axis[X] += src.axis[X];
+		dot[i].axis[Y] += src.axis[Y];
+		dot[i].axis[Z] += src.axis[Z];
 		i++;
 	}
 }
