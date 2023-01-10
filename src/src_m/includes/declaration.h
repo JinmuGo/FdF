@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 16:50:27 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/10 19:30:31 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # define MENU_WIDTH 350
 
 # define MARGIN 50
+
+# define AXIS_OFFSET 1000
+# define AXIS_SIZE 7
 
 # define X 0
 # define Y 1
@@ -75,6 +78,7 @@ struct s_key {
 
 struct	s_map {
 	t_dot	*dot;
+	t_dot	axis[AXIS_SIZE];
 	t_dot	max;
 	t_dot	mid;
 	t_dot	src;

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:51:24 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 16:05:41 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/10 18:05:44 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	rotate_map(t_dot *projection, float angle[3], int len)
 	{
 		projection[i] = mul3_mat(matrix3, projection[i]);
 		i++;
-	}	
+	}
 }
 
 void	z_divide(t_dot *projection, float divisor, int len)
@@ -82,10 +82,11 @@ void	z_divide(t_dot *projection, float divisor, int len)
 
 // scale rotate translate
 
-void	edit_map(t_meta *meta, t_dot *projection)
+void	edit_map(t_meta *meta, t_dot *projection, int len)
 {
-	z_divide(projection, meta->map.z_divisor ,meta->map.total_len);
-	scale_map(projection, meta->map.scale, meta->map.total_len);
-	rotate_map(projection, meta->map.angle, meta->map.total_len);
-	move_map(projection, meta->map.src, meta->map.total_len);
+	if (len != AXIS_SIZE)
+		z_divide(projection, meta->map.z_divisor ,len);
+	scale_map(projection, meta->map.scale, len);
+	rotate_map(projection, meta->map.angle, len);
+	move_map(projection, meta->map.src, len);
 }

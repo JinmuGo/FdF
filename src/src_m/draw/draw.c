@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:22:56 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 19:41:24 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/10 19:34:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "utils.h"
 #include "draw.h"
 #include "error.h"
+#include "color.h"
 
 void	draw_background(t_meta *meta, int back_color, int menu_color)
 {
@@ -43,25 +44,43 @@ void	draw_background(t_meta *meta, int back_color, int menu_color)
 	}	
 }
 
-// void	draw_axis(t_meta *meta, float angle[3])
-// {
+void	draw_axis(t_meta *meta, t_dot *axis_arr)
+{
+	int	i;
 	
-// }
+	i = 0;
+	while (i < 6)
+	{
+		if (i < 2)
+			axis_arr[6].color = AXIS_X_COLOR;
+		else if (2 <= i && i < 4)
+			axis_arr[6].color = AXIS_Y_COLOR;
+		else
+			axis_arr[6].color = AXIS_Z_COLOR;
+		draw_dot_between(meta, axis_arr[6], axis_arr[i]);
+		i++;
+	}
+}
 
 void	draw_process(t_meta *meta, t_bool init)
 {
-	t_dot *projection;
+	t_dot	*projection;
+	t_dot	*axis_projection;
 
 	projection = malloc(meta->map.total_len * sizeof(t_dot));
 	if (!projection)
 		err_terminate_process(ERR_ALLOCATE);
+	axis_projection = malloc(AXIS_SIZE * sizeof(t_dot));
 	draw_background(meta, meta->map.color.back_color, meta->map.color.menu_color);
-	// draw_axis(meta, meta->map.angle);
-	copy_map(meta->map.dot, projection, meta->map.total_len);
-	edit_map(meta, projection);
-	
+	copy_dot(meta->map.dot, projection, meta->map.total_len);
+	copy_dot(meta->map.axis, axis_projection, AXIS_SIZE);
+	edit_map(meta, projection, meta->map.total_len);
+	edit_map(meta, axis_projection, AXIS_SIZE);
+
 	draw(meta, projection, init);
+	draw_axis(meta, axis_projection);
 	mlx_put_image_to_window(meta->mlx.mlx, meta->mlx.win, meta->img.img, 0, 0);
 	draw_status(meta);
 	free(projection);
+	free(axis_projection);
 }

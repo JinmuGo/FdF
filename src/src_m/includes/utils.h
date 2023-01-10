@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:01:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 18:57:26 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/10 17:39:32 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ float	*get_color_array(float start, float mid, float end);
 
 // map_utils.c
 
-void	edit_map(t_meta *meta, t_dot *projection);
 void	get_proper_scale(t_meta *meta, t_dot *projection);
-void	copy_map(t_dot *src, t_dot *dst, int len);
+void	copy_dot(t_dot *src, t_dot *dst, int len);
 t_bool	invalid_dot(int x, int y);
 
 #endif

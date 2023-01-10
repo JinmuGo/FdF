@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:24:06 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 19:27:16 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/10 19:50:08 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	init_dot(char *line, t_map *map, int height)
 		i++;
 		map->total_len++;
 	}
+	map->mid = map->dot[map->total_len / 2];
 	free_arr(split_arr);
 }
 
@@ -181,9 +182,17 @@ t_bool	verify_path(const char *path)
 	return (return_val);
 }
 
+// void	init_mid(t_dot *mid)
+// {
+// 	mid->axis[X] = WIN_WIDTH / 2;
+// 	mid->axis[Y] = WIN_HEIGHT / 2;
+// 	mid->axis[Z] = 0;
+// }
+
 void	input_process(t_map *map, const char *path, int fd)
 {
 	init_map(map);
+	// init_mid(&map->mid);
 	if(!verify_path(path))
 		err_terminate_process(ERR_INVALID_PATH);
 	parsing_map(map, path ,fd);	

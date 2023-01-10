@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 16:06:19 by jgo               #+#    #+#             */
-/*   Updated: 2022/12/26 17:58:14 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/10 17:51:55 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # define PEAK_COLOR LAUREL_GREEN
 # define LAND_COLOR	LEMON_MERINGUE
 # define BOTTOM_COLOR	ENDLESS_SEA
+
+# define AXIS_X_COLOR 0xFF4242
+# define AXIS_Y_COLOR 0xFFFF42
+# define AXIS_Z_COLOR 0x4242FF
 
 # define MIN 0
 # define MID 1

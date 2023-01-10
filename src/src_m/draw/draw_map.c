@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:55:45 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 17:57:24 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/10 18:13:25 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	draw_dot(t_meta *meta, t_dot *dot)
 	i = 0;
 	while (i < meta->map.total_len)
 	{
-		my_dot_put(meta, dot[i].axis[X], dot[i].axis[Y], 0x76fa6a);
+		my_dot_put(meta, dot[i].axis[X], dot[i].axis[Y], dot[i].color);
 		i++;
 	}
 }
@@ -44,11 +44,9 @@ void	draw_dot_between(t_meta *meta, t_dot start, t_dot end)
 {
 	t_dot	delta;
 	t_dot	index;
-	int	len;
-	float color_arr[3];
-	
-	if (invalid_dot(start.axis[X], start.axis[Y]) && invalid_dot(end.axis[X], end.axis[Y]))
-		return ;
+	int		len;
+	float	color_arr[3];
+
 	len = delta_init(&delta, start, end);
 	index = start;
 	color_arr[0] = start.axis[Z];
@@ -56,6 +54,8 @@ void	draw_dot_between(t_meta *meta, t_dot start, t_dot end)
 	color_arr[2] = end.axis[Z];
 	while (len)
 	{
+		if(invalid_dot(index.axis[X], index.axis[Y]))
+			return ;
 		index.color = gradient(start.color, end.color, color_arr);
 		my_dot_put(meta, index.axis[X], index.axis[Y], index.color);
 		index.axis[X] += delta.axis[X];
@@ -89,8 +89,8 @@ void draw(t_meta *meta, t_dot *projection, t_bool init)
 {
 	if (init)
     	get_proper_scale(meta, projection);
-	// if (meta->map.key.dot)
-	// 	draw_dot(meta, projection);
+	if (meta->map.key.dot)
+		draw_dot(meta, projection);
 	if (meta->map.key.line)
     	draw_line(meta, projection);
 }

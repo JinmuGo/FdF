@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 19:36:23 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/10 16:51:25 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	key_press(int key, t_meta *meta)
 
 void    key_hooks(t_meta *meta)
 {
-    mlx_hook(meta->mlx.win, KEY_PRESS, 0, key_press, &meta);
+    mlx_hook(meta->mlx.win, KEY_PRESS, 0, key_press, meta);
+	mlx_hook(meta->mlx.win, DESTROY_NOTIFY, 0, success_terminate_process, meta);
 	// mlx_hook(meta->mlx.win, KEY_RELEASE, 0, key_release, &meta);
 }
