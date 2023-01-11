@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:51:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/10 16:56:34 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 16:48:56 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ int	success_terminate_process(t_meta *meta)
 	exit(EXIT_SUCCESS);
 }
 
+void    key_init(t_key *key)
+{
+    key->dot = TRUE;
+    key->axis = TRUE;
+    key->line = TRUE;
+	key->planet = TRUE;
+}
+
 void	mouse_init(t_mouse *mouse)
 {
 	mouse->left_click = FALSE;
@@ -30,5 +38,6 @@ void	mouse_init(t_mouse *mouse)
 
 void	hook_init(t_meta *meta)
 {
+	key_init(&meta->key);
 	mouse_init(&meta->mouse);
 }

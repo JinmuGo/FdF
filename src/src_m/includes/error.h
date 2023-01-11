@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:50:02 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/01 16:02:26 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 16:47:52 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 # define ERR_INVALID_PATH "❌This path is an invalid"
 
 
+// error.c
+
 int err_terminate_process(char *str);
+void input_error_handler(int ac, int init_fd);
+void	allocate_error_handler(void	*ptr);
+void	path_error_handler(const char * path);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:33 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 08:36:45 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 15:49:45 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,10 @@ int mouse_press(int button, int x, int y, t_meta *meta)
 {
 	x++;
 	y++;
-    if (button == 1)
-	{
+    if (button == 1 && meta->mouse.left_click == FALSE)
 		meta->mouse.left_click = TRUE;
-	}
-	if (button == 2)
-	{
+	if (button == 2 && meta->mouse.right_click == FALSE)
 		meta->mouse.right_click = TRUE;
-	}	
 	if (button == 4)
 	{
 		if (meta->map.scale > 3)
@@ -48,9 +44,9 @@ int mouse_release(int button, int x, int y, t_meta *meta)
 {
 	x++;
 	y++;
-    if (button == 1)
+    if (button == 1 && meta->mouse.left_click)
 		meta->mouse.left_click = FALSE;
-	if (button == 2)
+	if (button == 2 && meta->mouse.right_click)
 		meta->mouse.right_click = FALSE;
     return (0);
 }

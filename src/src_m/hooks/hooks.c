@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.h                                             :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/26 18:04:57 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 16:02:27 by jgo              ###   ########.fr       */
+/*   Created: 2023/01/11 10:48:38 by jgo               #+#    #+#             */
+/*   Updated: 2023/01/11 16:50:56 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_H
-# define DRAW_H
+#include "declaration.h"
+#include "hooks.h"
 
-void	draw_process(t_meta *meta, t_bool init);
-
-// draw_map.c
-
-void draw(t_meta *meta, t_dot *projection, t_bool init);
-void	draw_dot_between(t_meta *meta, t_dot start, t_dot end);
-
-// edit_map.c
-
-void	edit_map(t_meta *meta, t_dot *projection, int len);
-
-// draw_status.c
-
-void    draw_status(t_meta *meta);
-
-#endif
+void	hooks(t_meta *meta)
+{
+	key_hooks(meta);
+	mouse_hooks(meta);
+	// mlx_loop_hook() 지구본이 빙글빙글 돌아가는 걸 만들자! 
+}

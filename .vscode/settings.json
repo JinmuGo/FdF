@@ -5,6 +5,13 @@
         "functional": "c",
         "type_traits": "c",
         "chrono": "c",
-        "ratio": "c"
-    }
+        "ratio": "c",
+        "fdf.h": "c",
+        "error.h": "c",
+        "declaration.h": "c",
+        "math.h": "c",
+        "unistd.h": "c",
+        "hooks.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

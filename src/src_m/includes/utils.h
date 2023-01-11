@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:01:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 09:29:02 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 16:56:47 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 void	free_arr(char **arr);
 float	rotate_angle(float angle, float value);
+int		init_color(t_map *map, t_dot dot);
+void	init_metadata(t_meta *meta);
 
 // input_utils.c
 
@@ -30,12 +32,12 @@ int     get_color(t_meta *meta, int color);
 void	set_color(char *offset, int endian, int color, int alpha);
 int     get_offset(int x, int y, int line_length);
 void	my_dot_put(t_meta *meta, int x, int y, int color);
-float	*get_color_array(float start, float mid, float end);
 
 // map_utils.c
 
 void	get_proper_scale(t_meta *meta, t_dot *projection);
 void	copy_dot(t_dot *src, t_dot *dst, int len);
 t_bool	invalid_dot(int x, int y);
+void	init_map(t_map *map);
 
 #endif

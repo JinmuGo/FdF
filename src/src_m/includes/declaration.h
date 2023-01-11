@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 08:37:29 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 16:38:10 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ struct	s_mouse {
 struct s_key {
 	t_bool	dot;
 	t_bool	line;
+	t_bool	axis;
+	t_bool	planet;
 };
 
 struct	s_map {
@@ -83,7 +85,6 @@ struct	s_map {
 	t_dot	mid;
 	t_dot	src;
 	t_color	color;
-	t_key	key;
 	float	ratio;
 	float	z_divisor;
 	int		z_min;
@@ -97,6 +98,7 @@ struct s_meta {
 	t_img	img;
 	t_map	map;
 	t_mouse mouse;
+	t_key	key;
 };
 
 // debug

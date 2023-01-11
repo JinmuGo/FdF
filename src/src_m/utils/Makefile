@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+         #
+#    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 08:31:25 by jgo               #+#    #+#              #
-#    Updated: 2023/01/07 17:20:43 by jgo              ###   ########.fr        #
+#    Updated: 2023/01/11 16:55:21 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS = error.c \
 		input_utils.c \
 		input.c \
 		matrix.c \
-		utils.c
+		utils.c \
+		color.c
 
 NAME = utils.a
 

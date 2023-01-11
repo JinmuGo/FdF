@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:55:45 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/10 18:13:25 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 17:01:59 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "declaration.h"
 #include "utils.h"
 #include "color.h"
+#include "error.h"
+#include "draw.h"
 
 void	draw_dot(t_meta *meta, t_dot *dot)
 {
@@ -85,13 +87,39 @@ void	draw_line(t_meta *meta, t_dot *projection)
 	}
 }
 
+void	draw_axis(t_meta *meta)
+{
+	t_dot	*axis_projection;
+	int	i;
+	
+	axis_projection = malloc(AXIS_SIZE * sizeof(t_dot));
+	allocate_error_handler(axis_projection);
+	copy_dot(meta->map.axis, axis_projection, AXIS_SIZE);
+	edit_map(meta, axis_projection, AXIS_SIZE);
+	i = 0;
+	while (i < 6)
+	{
+		if (i < 2)
+			axis_projection[6].color = AXIS_X_COLOR;
+		else if (2 <= i && i < 4)
+			axis_projection[6].color = AXIS_Y_COLOR;
+		else
+			axis_projection[6].color = AXIS_Z_COLOR;
+		draw_dot_between(meta, axis_projection[6], axis_projection[i]);
+		i++;
+	}
+	free(axis_projection);
+}
+
 void draw(t_meta *meta, t_dot *projection, t_bool init)
 {
 	if (init)
     	get_proper_scale(meta, projection);
-	if (meta->map.key.dot)
+	if (meta->key.dot)
 		draw_dot(meta, projection);
-	if (meta->map.key.line)
+	if (meta->key.line)
     	draw_line(meta, projection);
+	if (meta->key.axis)
+		draw_axis(meta);
 }
 
