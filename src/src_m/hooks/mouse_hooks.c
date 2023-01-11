@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_hooks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:33 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 18:58:53 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 08:36:45 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int mouse_press(int button, int x, int y, t_meta *meta)
 	}	
 	if (button == 4)
 	{
-		if (meta->map.scale > 10)
+		if (meta->map.scale > 3)
 		{
 			meta->map.scale /= 1.5;
     		draw_process(meta, FALSE);

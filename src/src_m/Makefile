@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+         #
+#    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 14:05:59 by jgo               #+#    #+#              #
-#    Updated: 2023/01/10 20:02:26 by jgo              ###   ########.fr        #
+#    Updated: 2023/01/10 22:31:58 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,8 @@ DEPS = $(SRCS:.c=.d)
 -include $(DEPS)
 
 all bonus :
-		$(Q)$(call color_printf,$(YELLOW),$(FDF),🎯 Start compiling)
 		$(Q)$(foreach dir, $(DIRS), $(MAKE) TOPDIR=$(TOPDIR) -C $(dir) $@;)
+		$(Q)$(call color_printf,$(YELLOW),$(FDF),🎯 Start compiling)
 		$(MAKE) $(NAME)
 		$(Q)$(call color_printf,$(GREEN),$(FDF),✨ compiled!)
 

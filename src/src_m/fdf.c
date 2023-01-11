@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 21:14:46 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/10 19:49:41 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 09:29:31 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "draw.h"
 #include "event.h"
 #include "hooks.h"
+#include "utils.h"
 
 void	print_dot(t_dot *dot, int total_len)
 {
@@ -26,11 +27,13 @@ void	print_dot(t_dot *dot, int total_len)
 		printf(" X: %f", dot[i].axis[X]);
 		printf(" Y: %f", dot[i].axis[Y]);
 		printf(" Z: %f i : %d\n", dot[i].axis[Z], i);
+		printf(" color: %x\n", dot[i].color);
 	}
 }
 
 void	init_axis(t_dot mid, t_dot *axis_arr)
 {
+	ft_bzero(axis_arr, sizeof(float) * 3 * AXIS_SIZE);
 	axis_arr[6] = mid;
 	axis_arr[0].axis[X] = AXIS_OFFSET;
 	axis_arr[1].axis[X] = -AXIS_OFFSET;
@@ -81,8 +84,9 @@ int	main(int ac, char **av)
 	input_process(&meta.map, av[1] ,init_fd);
 	init_metadata(&meta);
 	draw_process(&meta, TRUE);
-	draw_process(&meta, FALSE);
-	// print_dot(meta.map.dot, meta.map.total_len);
+	
+	print_dot(meta.map.dot, meta.map.total_len);
+	print_dot(meta.map.axis, AXIS_SIZE);
 	hook_init(&meta);
 	key_hooks(&meta);
 	mouse_hooks(&meta);

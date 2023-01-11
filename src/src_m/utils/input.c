@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:24:06 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/10 19:50:08 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 09:28:23 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 void	init_map(t_map *map)
 {
-	map->max.axis[X] = 0;
-	map->max.axis[Y] = 0;
-	map->max.axis[Z] = 0;
+	ft_bzero(&map->max.axis, 3 * sizeof(float));
+	ft_bzero(&map->mid.axis, 3 * sizeof(float));
+	map->mid.painted = FALSE;
 	map->angle[X] = 42;
 	map->angle[Y] = 15;
 	map->angle[Z] = 0;
@@ -97,10 +97,11 @@ void	init_dot(char *line, t_map *map, int height)
 		map->dot[map->total_len].axis[Z] = ft_atoi(&split_arr[i][0]);
 		map->dot[map->total_len].painted = TRUE;
 		map->dot[map->total_len].color = init_color(map, map->dot[map->total_len]);
+		if (!map->mid.painted && is_mid_dot(map->max , i, height))
+			map->mid = map->dot[map->total_len];
 		i++;
 		map->total_len++;
 	}
-	map->mid = map->dot[map->total_len / 2];
 	free_arr(split_arr);
 }
 
@@ -182,17 +183,11 @@ t_bool	verify_path(const char *path)
 	return (return_val);
 }
 
-// void	init_mid(t_dot *mid)
-// {
-// 	mid->axis[X] = WIN_WIDTH / 2;
-// 	mid->axis[Y] = WIN_HEIGHT / 2;
-// 	mid->axis[Z] = 0;
-// }
+
 
 void	input_process(t_map *map, const char *path, int fd)
 {
 	init_map(map);
-	// init_mid(&map->mid);
 	if(!verify_path(path))
 		err_terminate_process(ERR_INVALID_PATH);
 	parsing_map(map, path ,fd);	

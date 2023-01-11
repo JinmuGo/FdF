@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   declaration.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/10 19:30:31 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 08:37:29 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define MARGIN 50
 
-# define AXIS_OFFSET 1000
+# define AXIS_OFFSET 10000
 # define AXIS_SIZE 7
 
 # define X 0

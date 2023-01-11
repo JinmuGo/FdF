@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:13:14 by jgo               #+#    #+#             */
-/*   Updated: 2022/12/28 18:50:30 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 09:30:26 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,15 @@ int	cal_line_len(char **split_arr)
 	while (split_arr[len] && split_arr[len][0] != '\n')
 		len++;
 	return (len);
+}
+
+t_bool	is_mid_dot(t_dot max, int width, int height)
+{
+	const int mid_idx_x = (int)floorf(max.axis[X] / 2);
+	const int mid_idx_y = (int)ceilf(max.axis[Y] / 2);
+
+	if (width == mid_idx_x && height == mid_idx_y)
+		return (TRUE);
+	else
+		return (FALSE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:01:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/10 17:39:32 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/11 09:29:02 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ float	rotate_angle(float angle, float value);
 
 void	cal_z(t_map *map, char **split_arr);
 int	cal_line_len(char **split_arr);
+t_bool	is_mid_dot(t_dot max, int width, int height);
 
 // draw_utils.c
 
