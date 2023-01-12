@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   declaration.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 16:38:10 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/12 20:07:27 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ struct	s_map {
 	t_color	color;
 	float	ratio;
 	float	z_divisor;
+	float	radius;
 	int		z_min;
 	int	total_len;
 	float	angle[3];

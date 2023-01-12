@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 16:06:19 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/10 17:51:55 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/12 21:08:43 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define BACK_COLOR 0x242424
 # define MENU_COLOR 0x424242
 
-# define PEAK_COLOR LAUREL_GREEN
+# define PEAK_COLOR ALLOY_ORANGE
 # define LAND_COLOR	LEMON_MERINGUE
 # define BOTTOM_COLOR	ENDLESS_SEA
 

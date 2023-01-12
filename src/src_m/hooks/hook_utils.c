@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:51:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 16:48:56 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/12 20:27:16 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    key_init(t_key *key)
     key->dot = TRUE;
     key->axis = TRUE;
     key->line = TRUE;
-	key->planet = TRUE;
+	key->planet = FALSE;
 }
 
 void	mouse_init(t_mouse *mouse)

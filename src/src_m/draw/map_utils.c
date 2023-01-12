@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:10:04 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 17:02:48 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/12 20:07:56 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	init_map(t_map *map)
 	map->src.axis[Z] = 0;
 	map->mid.painted = FALSE;
 	map->scale = 1;
+	map->radius = map->max.axis[X] / (M_PI * 2);
 	ft_bzero(&map->max.axis, 3 * sizeof(float));
 	ft_bzero(&map->mid.axis, 3 * sizeof(float));
 	init_map_color(&map->color);

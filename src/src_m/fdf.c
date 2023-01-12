@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 21:14:46 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 17:11:34 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/12 21:04:19 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(int ac, char **av)
 	init_metadata(&meta);
 	draw_process(&meta, TRUE);
 	hooks(&meta);
+	// print_dot(meta.map.dot, meta.map.total_len);
 	mlx_loop(meta.mlx.mlx);
 	free(meta.map.dot);
 	return (EXIT_SUCCESS);
