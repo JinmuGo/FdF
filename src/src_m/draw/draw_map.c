@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:55:45 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 17:01:59 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 15:31:39 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	draw_dot_between(t_meta *meta, t_dot start, t_dot end)
 
 	len = delta_init(&delta, start, end);
 	index = start;
-	color_arr[0] = start.axis[Z];
-	color_arr[1] = index.axis[Z];
-	color_arr[2] = end.axis[Z];
+	color_arr[MIN] = start.axis[Z];
+	color_arr[MID] = index.axis[Z];
+	color_arr[MAX] = end.axis[Z];
 	while (len)
 	{
 		if(invalid_dot(index.axis[X], index.axis[Y]))
