@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 16:19:43 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 23:06:35 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 # define X 0
 # define Y 1
 # define Z 2
+
+# define LON 0
+# define LAT 1
 
 typedef struct s_mlx t_mlx;
 typedef struct s_img t_img;
@@ -78,6 +81,7 @@ struct s_key {
 	t_bool	planet;
 	t_bool	extra_line;
 	t_bool	extra_line2;
+	t_bool	rotate;
 };
 
 struct	s_map {
@@ -90,7 +94,7 @@ struct	s_map {
 	float	ratio;
 	float	z_divisor;
 	float	radius;
-	int		z_min;
+	int		min_z;
 	int	total_len;
 	float	angle[3];
 	float	scale;

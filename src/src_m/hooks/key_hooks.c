@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 16:19:24 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 23:14:38 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,20 @@ void    key_option(int key, t_meta *meta)
         meta->key.planet = !meta->key.planet;
     if (key == KEY_E)
         meta->key.extra_line = !meta->key.extra_line;
-    if (key == KEY_R)
+    if (key == KEY_D)
         meta->key.extra_line2 = !meta->key.extra_line2;
+}
+
+void    key_view(int key, t_meta *meta)
+{
+    if (key == KEY_I)
+    {
+        meta->map.angle[X] = 30;
+        meta->map.angle[Y] = 330;
+        meta->map.angle[Z] = 30;
+    }
+    if (key == KEY_R)
+        meta->key.rotate = !meta->key.rotate;
 }
 
 int	key_press(int key, t_meta *meta)
@@ -57,6 +69,7 @@ int	key_press(int key, t_meta *meta)
         success_terminate_process(meta);
     key_rotate(key, meta);
     key_option(key, meta);
+    key_view(key, meta);
     draw_process(meta, FALSE);
     return (0);
 }

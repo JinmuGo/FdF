@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:55:45 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 16:25:43 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 23:20:59 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	draw_line(t_meta *meta, t_dot *projection)
 	{
 		if (projection[i].painted)
 		{
-			if ((i + 1) % (int)meta->map.max.axis[X] != 0)
+			if ((i + 1) % (int)meta->map.max.axis[X])
 				draw_dot_between(meta, projection[i], projection[i + 1]);
 			if ((i / (int)meta->map.max.axis[X]) != (meta->map.max.axis[Y] - 1))
 			{
@@ -84,9 +84,10 @@ void	draw_line(t_meta *meta, t_dot *projection)
 				if (meta->key.extra_line && (i + 1) % (int)meta->map.max.axis[X])
 					draw_dot_between(meta, projection[i], projection[i + (int)meta->map.max.axis[X] + 1]);
 				if (meta->key.extra_line2 && i % (int)meta->map.max.axis[X])
-					draw_dot_between(meta, projection[i], projection[i + (int)meta->map.max.axis[X] - 1]);
-
+				draw_dot_between(meta, projection[i], projection[i + (int)meta->map.max.axis[X] - 1]);
 			}
+			if (meta->key.planet && i % (int)meta->map.max.axis[X] == 0)
+				draw_dot_between(meta, projection[i], projection[i + (int)meta->map.max.axis[X] - 1]);
 		}
 		i++;
 	}

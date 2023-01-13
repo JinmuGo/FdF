@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:22:56 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/12 21:32:46 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 20:49:44 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@
 #include "error.h"
 #include "color.h"
 
-void	draw_background(t_meta *meta, int back_color, int menu_color)
+void	draw_background(t_meta *meta, int back_color)
 {
 	int	axis[2];
 	int	draw_color;
 
-	menu_color = get_color(meta, menu_color);
 	back_color = get_color(meta, back_color);
 	axis[Y] = 0;
 	while (axis[Y] < WIN_HEIGHT)
@@ -33,10 +32,7 @@ void	draw_background(t_meta *meta, int back_color, int menu_color)
 		axis[X] = 0;
 		while (axis[X] < WIN_WIDTH)
 		{
-			if (axis[X] < MENU_WIDTH)
-				draw_color = menu_color;
-			else
-				draw_color = back_color;
+			draw_color = back_color;
 			my_dot_put(meta, axis[X], axis[Y], draw_color);
 			axis[X]++;
 		}
@@ -50,7 +46,7 @@ void	draw_process(t_meta *meta, t_bool init)
 
 	projection = malloc(meta->map.total_len * sizeof(t_dot));
 	allocate_error_handler(projection);
-	draw_background(meta, meta->map.color.back_color, meta->map.color.menu_color);
+	draw_background(meta, meta->map.color.back_color);
 	copy_dot(meta->map.dot, projection, meta->map.total_len);
 	edit_map(meta, projection, meta->map.total_len);
 	draw(meta, projection, init);

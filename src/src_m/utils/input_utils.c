@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:13:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 09:30:26 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 20:35:44 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	cal_z(t_map *map, char **split_arr)
 		num = ft_atoi(&split_arr[i][0]);
 		if (map->max.axis[Z] < num)
 			map->max.axis[Z] = num;
-		if (map->z_min > num)
-			map->z_min = num;
+		if (map->min_z > num)
+			map->min_z = num;
 		if (!is_valid_dot(&split_arr[i][0]))
 			err_terminate_process(ERR_INVALID_MAP);
 		i++;

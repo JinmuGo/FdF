@@ -6,42 +6,13 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:28:51 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 15:56:14 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 23:18:45 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "declaration.h"
-
-
-
-
-/**
- * @brief flat to sphere
- * @link https://www.themathdoctors.org/making-a-sphere-from-flat-material/
- * @link https://m.blog.naver.com/junhyuk7272/221675164093
- * @link https://42born2code.slack.com/archives/CN9RHKQHW/p1669804421641049
- * 
- * @param meta 
- * @param projection 
- */
-
-/*
-For each (point i from 0 to 100)
-{
-     lat = map(i, 0, 100, -PI, PI)
-    For each (point j from 0 to 100)
-    {
-          lon = map(j, 0, 100, -PI/2, PI / 2)
-           x  = r * sin(lon) * cos(lat) // lon : 경도, lat : 위도 
-           y  = r * sin(lon) * sin(lat)
-        	z = r * cos(lon)y
-           save(point data)
-     }
-}
-*/
-
-
+#include "utils.h"
 
 /**
  * @brief 
@@ -55,44 +26,54 @@ For each (point i from 0 to 100)
         return (fstart +(fend - fstart) * ((value - istart) / (iend - istart))
  * @return float 
  */
-float map(int value, int istart, int iend, float fstart, float fend)
+float mapping(int value, int iend, float fstart, float fend)
 {
-	return (fstart + (fend - fstart) * ((float)(value - istart) / (iend - istart)));
+	return (fstart + (fend - fstart) * ((float)(value) / (iend)));
 }
 
-int	get_radius(int z, int max_z, int min_z)
+int	get_radius(t_map *map, t_dot dot)
 {
-	float	r;
+	const int min_z = map->min_z;
+	const int max_z = map->max.axis[Z];
 	
-	if (max_z == min_z)
-		return (100);
-	r = ((float)z - min_z) / (max_z - min_z);
-	// printf("max: %d cur: %d min: %d\n", max_z, z, min_z);
-	// printf("radius: %f\n", r);
-	return (r * (150) + (1 - r) * (100));
+	const	float	r = get_ratio(min_z, dot.axis[Z], max_z);
+
+	if (map->max.axis[X] > map->max.axis[Y])
+		return (lerp(map->max.axis[Y], map->max.axis[X], r));
+	else
+		return (lerp(map->max.axis[X], map->max.axis[Y], r));
 }
 
-void	draw_planet(t_meta *meta, t_dot *projection)
-{
-	int	axis[2];
-	// int	rad3[3];
-	float lat;
-	float lon;
 
-	// radian_init(rad3, angle);
+/**
+ * @brief flat to sphere
+ * @link https://www.themathdoctors.org/making-a-sphere-from-flat-material/
+ * @link https://m.blog.naver.com/junhyuk7272/221675164093
+ * @link https://42born2code.slack.com/archives/CN9RHKQHW/p1669804421641049
+ * 
+ * @param meta 
+ * @param projection 
+ */
+void	draw_planet(t_map *map, t_dot *projection)
+{
+	float angle[2];
+	int	axis[2];
+	float	radius;
+	int	idx;
+
 	axis[X] = 0;
-	while (axis[X] < meta->map.max.axis[X])
+	while (axis[X] < map->max.axis[X])
 	{
 		axis[Y] = 0;
-		lon = map(axis[X],0, meta->map.max.axis[X], -M_PI, M_PI);
-		while (axis[Y] < meta->map.max.axis[Y])
+		angle[LON] = mapping(axis[X], map->max.axis[X], -M_PI, M_PI);
+		while (axis[Y] < map->max.axis[Y])
 		{
-			int idx = meta->map.max.axis[X] * axis[Y] + axis[X];
-			lat = map(axis[Y], 0,meta->map.max.axis[Y], -(M_PI / 2) , M_PI / 2);
-			int radius = get_radius(meta->map.dot[idx].axis[Z] , meta->map.max.axis[Z], meta->map.z_min);
-			projection[idx].axis[X] = radius * cos(lat) * cos(lon); // lon : 경도, lat : 위도 
-			projection[idx].axis[Y] = radius * cos(lat) * sin(lon); // lon : 경도, lat : 위도 
-			projection[idx].axis[Z] = radius * sin(lat); // lon : 경도, lat : 위도 
+			idx = map->max.axis[X] * axis[Y] + axis[X];
+			angle[LAT] = mapping(axis[Y], map->max.axis[Y], -(M_PI / 2) , M_PI / 2);
+			radius = get_radius(map, projection[idx]);
+			projection[idx].axis[X] = (radius + projection[idx].axis[Z]) * cos(angle[LAT]) * cos(angle[LON]);
+			projection[idx].axis[Y] = (radius + projection[idx].axis[Z]) * cos(angle[LAT]) * sin(angle[LON]);
+			projection[idx].axis[Z] = (radius + projection[idx].axis[Z]) * sin(angle[LAT]);
 			axis[Y]++;
 		}
 		axis[X]++;

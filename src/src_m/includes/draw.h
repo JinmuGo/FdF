@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:04:57 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/12 21:45:52 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 21:26:34 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_dot_between(t_meta *meta, t_dot start, t_dot end);
 // edit_map.c
 
 void	edit_map(t_meta *meta, t_dot *projection, int len);
-void	draw_planet(t_meta *meta, t_dot *projection);
+void	draw_planet(t_map *map, t_dot *projection);
 // void	draw_planet(t_meta *meta, t_dot *projection , float angle[3]);
 
 // draw_status.c

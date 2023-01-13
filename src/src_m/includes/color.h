@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 16:06:19 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/12 21:08:43 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 16:40:56 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 # define MID 1
 # define MAX 2
 
-int	gradient(int start_color, int end_color, const float arr[3]);
+int		gradient(int start_color, int end_color, const float arr[3]);
+int		get_color(t_meta *meta, int color);
+void	set_color(char *offset, int endian, int color, int alpha);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:01:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 16:56:47 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 16:41:17 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ void	init_metadata(t_meta *meta);
 // input_utils.c
 
 void	cal_z(t_map *map, char **split_arr);
-int	cal_line_len(char **split_arr);
+int		cal_line_len(char **split_arr);
 t_bool	is_mid_dot(t_dot max, int width, int height);
 
 // draw_utils.c
 
-int     get_color(t_meta *meta, int color);
-void	set_color(char *offset, int endian, int color, int alpha);
-int     get_offset(int x, int y, int line_length);
+float	get_ratio(int min, int mid, int max);
+int		lerp(int p1, int p2, float ratio);
 void	my_dot_put(t_meta *meta, int x, int y, int color);
 
 // map_utils.c

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   edit_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:51:24 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/12 21:46:24 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 23:19:45 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	edit_map(t_meta *meta, t_dot *projection, int len)
 	if (len != AXIS_SIZE)
 		z_divide(projection, meta->map.z_divisor ,len);
 	if (meta->key.planet && len != AXIS_SIZE)
-		draw_planet(meta, projection);
+		draw_planet(&meta->map, projection);
 	scale_map(projection, meta->map.scale, len);
 	rotate_map(projection, meta->map.angle, len);
 	move_map(projection, meta->map.src, len);

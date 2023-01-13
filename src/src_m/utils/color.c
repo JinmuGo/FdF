@@ -6,22 +6,37 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:14:03 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 15:33:55 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 23:06:24 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "declaration.h"
+#include "utils.h"
 #include "color.h"
 
-static int	lerp(int p1, int p2, float ratio)
-{
-	return ((float)(1 - ratio) * p1 + ratio * p2);
+int	get_color(t_meta *meta, int color)
+{	
+	if (meta->img.bits_per_pixel != 32)
+		color = mlx_get_color_value(meta->mlx.mlx, color);
+	return (color);
 }
 
-static float	get_ratio(int min, int mid, int max)
+void	set_color(char *offset, int endian, int color, int alpha)
 {
-	if (min == max)
-		return (1.0f);
-	return ((float)(mid - min) / (max - min));
+	if (endian)
+	{
+		offset[0] = alpha;
+		offset[1] = (color >> 16) & 0xFF;
+		offset[2] = (color >> 8) & 0xFF;
+		offset[3] = (color) & 0xFF;
+	}
+	else
+	{
+		offset[0] = (color) & 0xFF;
+		offset[1] = (color >> 8) & 0xFF;
+		offset[2] = (color >> 16) & 0xFF;
+		offset[3] = alpha;
+	}
 }
 
 int	gradient(int start_color, int end_color, const float arr[3])

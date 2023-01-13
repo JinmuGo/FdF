@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:02:08 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 17:10:40 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 20:35:44 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	init_color(t_map *map, t_dot dot)
 {
 	float	color_arr[3];
 
-	color_arr[MIN] = map->z_min;
+	color_arr[MIN] = map->min_z;
 	color_arr[MID] = dot.axis[Z];
 	color_arr[MAX] = map->max.axis[Z];
 	if (color_arr[MID] == 0)

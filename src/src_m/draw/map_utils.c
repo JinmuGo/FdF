@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:10:04 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/12 20:07:56 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 23:25:40 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_bool	get_profit_scale(t_dot *dot, int len)
 	i = 0;
 	while (i < len)
 	{
-		if (dot[i].axis[X] < (MENU_WIDTH + MARGIN) || \
+		if (dot[i].axis[X] < (MARGIN) || \
 			dot[i].axis[X] > (WIN_WIDTH - MARGIN))
 			return (FALSE);
 		if (dot[i].axis[Y] < MARGIN || \
@@ -46,7 +46,13 @@ void	copy_dot(t_dot *src, t_dot *dst, int len)
 
 void	get_proper_scale(t_meta *meta, t_dot *projection)
 {
-	meta->map.src.axis[X] = ((WIN_WIDTH + MENU_WIDTH) / 2);
+
+	if (meta->key.planet)
+	{
+		meta->map.scale *= 3;
+		return ;
+	}
+	meta->map.src.axis[X] = WIN_WIDTH / 2;
 	meta->map.src.axis[Y] = WIN_HEIGHT / 2;
 	meta->map.src.axis[Z] = 0;
 	meta->map.scale = 1;
@@ -74,11 +80,11 @@ static void	init_map_color(t_color *color)
 
 void	init_map(t_map *map)
 {
-	map->angle[X] = 42;
-	map->angle[Y] = 15;
+	map->angle[X] = 280;
+	map->angle[Y] = 0;
 	map->angle[Z] = 0;
-	map->z_min = 0;
-	map->src.axis[X] = ((WIN_WIDTH + MENU_WIDTH) / 2);
+	map->min_z = 0;
+	map->src.axis[X] = WIN_WIDTH / 2;
 	map->src.axis[Y] = WIN_HEIGHT / 2;
 	map->src.axis[Z] = 0;
 	map->mid.painted = FALSE;
