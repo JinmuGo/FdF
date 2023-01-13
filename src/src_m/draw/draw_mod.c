@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_mod.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:28:51 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/12 22:01:39 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 15:56:14 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ For each (point i from 0 to 100)
         return (fstart +(fend - fstart) * ((value - istart) / (iend - istart))
  * @return float 
  */
-float map(int value, int iend, float fstart, float fend)
+float map(int value, int istart, int iend, float fstart, float fend)
 {
-	return (fstart + (fend - fstart) * ((float)(value) / (iend)));
+	return (fstart + (fend - fstart) * ((float)(value - istart) / (iend - istart)));
 }
 
 int	get_radius(int z, int max_z, int min_z)
@@ -84,11 +84,11 @@ void	draw_planet(t_meta *meta, t_dot *projection)
 	while (axis[X] < meta->map.max.axis[X])
 	{
 		axis[Y] = 0;
-		lon = map(axis[X], meta->map.max.axis[X], -M_PI, M_PI);
+		lon = map(axis[X],0, meta->map.max.axis[X], -M_PI, M_PI);
 		while (axis[Y] < meta->map.max.axis[Y])
 		{
 			int idx = meta->map.max.axis[X] * axis[Y] + axis[X];
-			lat = map(axis[Y], meta->map.max.axis[Y], -(M_PI / 2) , M_PI / 2);
+			lat = map(axis[Y], 0,meta->map.max.axis[Y], -(M_PI / 2) , M_PI / 2);
 			int radius = get_radius(meta->map.dot[idx].axis[Z] , meta->map.max.axis[Z], meta->map.z_min);
 			projection[idx].axis[X] = radius * cos(lat) * cos(lon); // lon : 경도, lat : 위도 
 			projection[idx].axis[Y] = radius * cos(lat) * sin(lon); // lon : 경도, lat : 위도 

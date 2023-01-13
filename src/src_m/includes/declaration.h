@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   declaration.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/12 20:07:27 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 16:19:43 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ struct s_key {
 	t_bool	line;
 	t_bool	axis;
 	t_bool	planet;
+	t_bool	extra_line;
+	t_bool	extra_line2;
 };
 
 struct	s_map {

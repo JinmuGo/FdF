@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 16:01:34 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 14:53:11 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 15:52:32 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@ t_bool	invalid_dot(int x, int y)
 	if (y < 0 || y > WIN_HEIGHT)
 		return (TRUE);
 	return (FALSE);
-}
-
-
-int	get_offset(int x, int y, int line_length)
-{
-	return ((y * line_length + x * 4));
 }
 
 int	get_color(t_meta *meta, int color)
@@ -63,7 +57,7 @@ void	my_dot_put(t_meta *meta, int x, int y, int color)
 
 	if (invalid_dot(x, y))
 		return ;
-	offset = get_offset(x, y, meta->img.line_length);
+	offset = y * meta->img.line_length + x * 4;
 	alpha = 1;
 	set_color(&meta->img.addr[offset], meta->img.endian, get_color(meta, color), alpha);
 }

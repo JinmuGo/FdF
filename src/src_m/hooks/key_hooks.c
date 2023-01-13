@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 16:38:31 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/13 16:19:24 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,18 @@ void    key_rotate(int key, t_meta *meta)
 
 void    key_option(int key, t_meta *meta)
 {
-    if (key == KEY_D)
+    if (key == KEY_1)
         meta->key.dot = !meta->key.dot;
-    if (key == KEY_L)
+    if (key == KEY_2)
         meta->key.line = !meta->key.line;
-    if (key == KEY_E)
+    if (key == KEY_3)
         meta->key.axis = !meta->key.axis;
     if (key == KEY_P)
         meta->key.planet = !meta->key.planet;
+    if (key == KEY_E)
+        meta->key.extra_line = !meta->key.extra_line;
+    if (key == KEY_R)
+        meta->key.extra_line2 = !meta->key.extra_line2;
 }
 
 int	key_press(int key, t_meta *meta)
