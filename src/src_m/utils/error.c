@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:17:46 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 16:47:32 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:41:46 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 #include "utils.h"
 #include "error.h"
 
-int err_terminate_process(char *str)
+int	err_terminate_process(char *str)
 {
-    ft_printf("%s\n", str);
-    exit(EXIT_FAILURE);
+	ft_printf("%s\n", str);
+	exit(EXIT_FAILURE);
 }
 
-void input_error_handler(int ac, int init_fd)
+void	input_error_handler(int ac, int init_fd)
 {
-    if (ac != 2)
+	if (ac != 2)
 		err_terminate_process(ERR_ARGS);
 	if (init_fd < 2)
 		err_terminate_process(ERR_PATH_OPEN);
@@ -35,13 +35,12 @@ void	allocate_error_handler(void	*ptr)
 		err_terminate_process(ERR_ALLOCATE);
 }
 
-
 static t_bool	verify_path(const char *path)
 {
-	const char **split_arr = (const char **)ft_split(path, '/');
-	char **	surfix_arr;
-	t_bool	return_val;
-	int	i;
+	const char	**split_arr = (const char **)ft_split(path, '/');
+	char		**surfix_arr;
+	t_bool		return_val;
+	int			i;
 
 	if (!split_arr)
 		return (FALSE);
@@ -61,8 +60,8 @@ static t_bool	verify_path(const char *path)
 	return (return_val);
 }
 
-void	path_error_handler(const char * path)
+void	path_error_handler(const char *path)
 {
-	if(!verify_path(path))
+	if (!verify_path(path))
 		err_terminate_process(ERR_INVALID_PATH);
 }

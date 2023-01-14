@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:02:08 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 12:50:36 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:46:55 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	free_arr(char **arr)
 	if (!arr)
 		return ;
 	i = 0;
-	while(arr[i])
+	while (arr[i])
 		free(arr[i++]);
 	free(arr);
 }
@@ -39,20 +39,21 @@ float	rotate_angle(float angle, float value)
 
 int	init_color(t_map *map, t_dot dot)
 {
-	float	color_arr[3];
+	const t_color	color = map->color;
+	float			color_arr[3];
 
 	color_arr[MIN] = map->min_z;
 	color_arr[MID] = dot.axis[Z];
 	color_arr[MAX] = map->max.axis[Z];
 	if (color_arr[MID] == 0)
-		return (map->color.land_color);
+		return (color.land_color);
 	if (color_arr[MID] == color_arr[MAX])
-		return (map->color.peak_color);
+		return (color.peak_color);
 	if (color_arr[MIN] == color_arr[MID] && color_arr[MIN] != 0)
-		return (map->color.bottom_color);
+		return (color.bottom_color);
 	if (color_arr[MID] > 0)
-		return (gradient(map->color.land_color, map->color.peak_color, color_arr));
-	return (gradient(map->color.peak_color, map->color.land_color, color_arr));
+		return (gradient(color.land_color, color.peak_color, color_arr));
+	return (gradient(color.peak_color, color.land_color, color_arr));
 }
 
 static void	init_axis(t_dot mid, t_dot *axis_arr)
@@ -85,7 +86,8 @@ static void	init_axis(t_dot mid, t_dot *axis_arr)
 void	init_metadata(t_meta *meta)
 {
 	meta->mlx.mlx = mlx_init();
-	meta->mlx.win = mlx_new_window(meta->mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "jgo FdF");
+	meta->mlx.win = mlx_new_window(meta->mlx.mlx, \
+		WIN_WIDTH, WIN_HEIGHT, "jgo FdF");
 	meta->img.img = mlx_new_image(meta->mlx.mlx, WIN_WIDTH, WIN_HEIGHT);
 	meta->img.addr = mlx_get_data_addr(meta->img.img, \
 		&meta->img.bits_per_pixel, &meta->img.line_length, &meta->img.endian);

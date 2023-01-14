@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:55:45 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 11:47:54 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:57:47 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,44 +35,17 @@ int	delta_init(t_dot *delta, t_dot start, t_dot end)
 	delta->axis[X] = end.axis[X] - start.axis[X];
 	delta->axis[Y] = end.axis[Y] - start.axis[Y];
 	delta->axis[Z] = end.axis[Z] - start.axis[Z];
-	dis = sqrt((delta->axis[X] * delta->axis[X]) + (delta->axis[Y] * delta->axis[Y]));
+	dis = sqrt((delta->axis[X] * delta->axis[X]) + \
+		(delta->axis[Y] * delta->axis[Y]));
 	delta->axis[X] /= dis;
 	delta->axis[Y] /= dis;
 	delta->axis[Z] /= dis;
 	return (dis);
 }
 
-void	draw_dot_between(t_meta *meta, t_dot start, t_dot end)
+void	draw_line(t_meta *meta, t_dot *projection, int i)
 {
-	t_dot	delta;
-	t_dot	index;
-	int		len;
-	float	color_arr[3];
-
-	len = delta_init(&delta, start, end);
-	index = start;
-	color_arr[MIN] = start.axis[Z];
-	color_arr[MID] = index.axis[Z];
-	color_arr[MAX] = end.axis[Z];
-	while (len)
-	{
-		if(invalid_dot(index.axis[X], index.axis[Y]))
-			return ;
-		index.color = gradient(start.color, end.color, color_arr);
-		my_dot_put(meta, index.axis[X], index.axis[Y], index.color);
-		index.axis[X] += delta.axis[X];
-		index.axis[Y] += delta.axis[Y];
-		color_arr[1] += delta.axis[Z];
-		len--;
-	}
-}
-
-void	draw_line(t_meta *meta, t_dot *projection)
-{
-	int	i;
-
-	i = 0;
-	while (i < meta->map.total_len)
+	while (++i < meta->map.total_len)
 	{
 		if (projection[i].painted)
 		{
@@ -80,24 +53,28 @@ void	draw_line(t_meta *meta, t_dot *projection)
 				draw_dot_between(meta, projection[i], projection[i + 1]);
 			if ((i / (int)meta->map.max.axis[X]) != (meta->map.max.axis[Y] - 1))
 			{
-				draw_dot_between(meta, projection[i], projection[i + (int)meta->map.max.axis[X]]);
-				if (meta->key.extra_line && (i + 1) % (int)meta->map.max.axis[X])
-					draw_dot_between(meta, projection[i], projection[i + (int)meta->map.max.axis[X] + 1]);
+				draw_dot_between(meta, projection[i], \
+					projection[i + (int)meta->map.max.axis[X]]);
+				if (meta->key.extra_line && \
+					(i + 1) % (int)meta->map.max.axis[X])
+					draw_dot_between(meta, projection[i], \
+						projection[i + (int)meta->map.max.axis[X] + 1]);
 				if (meta->key.extra_line2 && i % (int)meta->map.max.axis[X])
-				draw_dot_between(meta, projection[i], projection[i + (int)meta->map.max.axis[X] - 1]);
+					draw_dot_between(meta, projection[i], \
+						projection[i + (int)meta->map.max.axis[X] - 1]);
 			}
 			if (meta->key.planet && i % (int)meta->map.max.axis[X] == 0)
-				draw_dot_between(meta, projection[i], projection[i + (int)meta->map.max.axis[X] - 1]);
+				draw_dot_between(meta, projection[i], \
+					projection[i + (int)meta->map.max.axis[X] - 1]);
 		}
-		i++;
 	}
 }
 
 void	draw_axis(t_meta *meta)
 {
 	t_dot	*axis_projection;
-	int	i;
-	
+	int		i;
+
 	axis_projection = malloc(AXIS_SIZE * sizeof(t_dot));
 	allocate_error_handler(axis_projection);
 	copy_dot(meta->map.axis, axis_projection, AXIS_SIZE);
@@ -117,15 +94,14 @@ void	draw_axis(t_meta *meta)
 	free(axis_projection);
 }
 
-void draw(t_meta *meta, t_dot *projection, t_bool init)
+void	draw(t_meta *meta, t_dot *projection, t_bool init)
 {
 	if (init)
-    	get_proper_scale(meta, projection);
+		get_proper_scale(meta, projection);
 	if (meta->key.dot)
 		draw_dot(meta, projection);
 	if (meta->key.line)
-    	draw_line(meta, projection);
+		draw_line(meta, projection, -1);
 	if (meta->key.axis)
 		draw_axis(meta);
 }
-

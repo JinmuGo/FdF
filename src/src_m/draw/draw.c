@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:22:56 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 12:21:16 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:57:59 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ void	draw_process(t_meta *meta, t_bool init)
 	draw(meta, projection, init);
 	mlx_put_image_to_window(meta->mlx.mlx, meta->mlx.win, meta->img.img, 0, 0);
 	print_status(meta);
-	// draw_keymap(meta); 추가예정.
 	free(projection);
 }

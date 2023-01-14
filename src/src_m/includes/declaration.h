@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   declaration.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 12:53:09 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:57:07 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,18 @@
 # define L 2
 # define R 3
 
-typedef struct s_mlx t_mlx;
-typedef struct s_img t_img;
-typedef struct s_dot t_dot;
-typedef struct s_map t_map;
-typedef struct s_meta t_meta;
-typedef struct s_color t_color;
-typedef struct s_mouse t_mouse;
-typedef struct s_key t_key;
+typedef struct s_mlx	t_mlx;
+typedef struct s_img	t_img;
+typedef struct s_dot	t_dot;
+typedef struct s_map	t_map;
+typedef struct s_meta	t_meta;
+typedef struct s_color	t_color;
+typedef struct s_mouse	t_mouse;
+typedef struct s_key	t_key;
 
 struct s_mlx {
-    void	*mlx;
-    void	*win;
+	void	*mlx;
+	void	*win;
 };
 
 struct s_color {
@@ -60,7 +60,7 @@ struct s_color {
 };
 
 struct s_img {
-    void	*img;
+	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
@@ -102,16 +102,16 @@ struct	s_map {
 	float	z_divisor;
 	float	radius;
 	int		min_z;
-	int	total_len;
+	int		total_len;
 	float	angle[3];
 	float	scale;
 };
 
 struct s_meta {
-    t_mlx   mlx;
+	t_mlx	mlx;
 	t_img	img;
 	t_map	map;
-	t_mouse mouse;
+	t_mouse	mouse;
 	t_key	key;
 };
 

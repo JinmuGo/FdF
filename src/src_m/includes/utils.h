@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:01:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 13:09:53 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:52:02 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	init_map(t_map *map);
 
 // print_status.c
 
-void    print_status(t_meta *meta);
+void	print_status(t_meta *meta);
 
 // print_utils.c
 

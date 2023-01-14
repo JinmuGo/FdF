@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_status.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:22:56 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 13:11:57 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:44:34 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 void	print_angle(t_mlx mlx, int *margin, float angle[3])
 {
-
 	margin[B] += 60;
 	print_str(mlx, margin[L], margin[B], "x angle : ");
 	print_nbr(mlx, margin[L] + 100, margin[B], angle[Z]);
@@ -26,7 +25,6 @@ void	print_angle(t_mlx mlx, int *margin, float angle[3])
 	margin[B] += 30;
 	print_str(mlx, margin[L], margin[B], "z angle : ");
 	print_nbr(mlx, margin[L] + 100, margin[B], angle[Z]);
-
 }
 
 void	print_mod(t_mlx mlx, int *margin, t_key key)
@@ -42,7 +40,7 @@ void	print_mod(t_mlx mlx, int *margin, t_key key)
 	print_str(mlx, margin[L] + 150, margin[B], make_bool_str(key.extra_line));
 	margin[B] += 30;
 	print_str(mlx, margin[L], margin[B], "extra_line_R : ");
-	print_str(mlx, margin[L] + 150, margin[B],  make_bool_str(key.extra_line2));
+	print_str(mlx, margin[L] + 150, margin[B], make_bool_str(key.extra_line2));
 	margin[B] += 30;
 	print_str(mlx, margin[L], margin[B], "axis : ");
 	print_str(mlx, margin[L] + 70, margin[B], make_bool_str(key.axis));
@@ -57,7 +55,7 @@ void	print_mod(t_mlx mlx, int *margin, t_key key)
 	print_str(mlx, margin[L] + 80, margin[B], make_bool_str(key.shift));
 }
 
-void    print_status(t_meta *meta)
+void	print_status(t_meta *meta)
 {
 	int	margin[4];
 

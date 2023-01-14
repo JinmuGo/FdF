@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:13:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 11:06:36 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:55:44 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_bool	is_valid_dot(char *dot)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (dot[i] == '-' || dot[i] == '+' || dot[i] == '\n')
@@ -60,8 +60,8 @@ int	cal_line_len(char **split_arr)
 
 t_bool	is_mid_dot(t_dot max, int width, int height)
 {
-	const int mid_idx_x = (int)floorf(max.axis[X] / 2);
-	const int mid_idx_y = (int)ceilf(max.axis[Y] / 2);
+	const int	mid_idx_x = (int)floorf(max.axis[X] / 2);
+	const int	mid_idx_y = (int)ceilf(max.axis[Y] / 2);
 
 	if (width == mid_idx_x && height == mid_idx_y)
 		return (TRUE);

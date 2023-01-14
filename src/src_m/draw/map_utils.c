@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:10:04 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 23:25:40 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:37:33 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	copy_dot(t_dot *src, t_dot *dst, int len)
 
 void	get_proper_scale(t_meta *meta, t_dot *projection)
 {
-
 	if (meta->key.planet)
 	{
 		meta->map.scale *= 3;
@@ -66,7 +65,6 @@ void	get_proper_scale(t_meta *meta, t_dot *projection)
 	}
 }
 
-
 static void	init_map_color(t_color *color)
 {
 	color->back_color = BACK_COLOR;
@@ -76,7 +74,6 @@ static void	init_map_color(t_color *color)
 	color->menu_color = MENU_COLOR;
 	color->bottom_color = BOTTOM_COLOR;
 }
-
 
 void	init_map(t_map *map)
 {

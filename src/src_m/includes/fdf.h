@@ -12,16 +12,14 @@
 
 #ifndef FDF_H
 # define FDF_H
+# include <fcntl.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <math.h>
+# include <unistd.h>
+# include <mlx.h>
 
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <unistd.h>
-#include <mlx.h>
-
-#include "ft_printf.h"
-#include "libft.h"
-
+# include "ft_printf.h"
+# include "libft.h"
 
 #endif

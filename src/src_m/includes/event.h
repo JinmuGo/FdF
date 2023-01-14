@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:35:34 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/07 16:30:23 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:49:23 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 # define CONFIGURE_NOTIFY 22
 # define CONFIGURE_REQUEST 23
 # define GRAVITY_NOTIFY 24
+
+/*
 #define ResizeRequest           25
 #define CirculateNotify         26
 #define CirculateRequest        27
@@ -48,5 +50,6 @@
 #define MappingNotify           34
 #define GenericEvent            35
 #define LASTEvent               36   
+*/
 
 #endif

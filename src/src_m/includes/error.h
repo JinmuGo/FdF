@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:50:02 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 16:47:52 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:48:55 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@
 # define ERR_INVALID_MAP "❌This map is an invalid"
 # define ERR_INVALID_PATH "❌This path is an invalid"
 
-
 // error.c
-
-int err_terminate_process(char *str);
-void input_error_handler(int ac, int init_fd);
+int		err_terminate_process(char *str);
+void	input_error_handler(int ac, int init_fd);
 void	allocate_error_handler(void	*ptr);
-void	path_error_handler(const char * path);
+void	path_error_handler(const char *path);
 
 #endif

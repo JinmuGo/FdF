@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:44:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 10:42:23 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:51:29 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 // key_hooks.c
 
-int	key_press(int key, t_meta *param);
+int		key_press(int key, t_meta *param);
 
 // mouse_hooks.c
 
-int mouse_press(int button, int x, int y, t_meta *meta);
-int mouse_release(int button, int x, int y, t_meta *meta);
-int mouse_move(int x, int y, t_meta *meta);
+int		mouse_press(int button, int x, int y, t_meta *meta);
+int		mouse_release(int button, int x, int y, t_meta *meta);
+int		mouse_move(int x, int y, t_meta *meta);
 void	mouse_init(t_mouse *mouse);
 
 // hooks_utils.c

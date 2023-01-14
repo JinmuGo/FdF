@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:48:38 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 12:57:04 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:40:14 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	rotate_planet(t_meta *meta)
 	return (0);
 }
 
-int key_release(int key, t_meta *meta)
+int	key_release(int key, t_meta *meta)
 {
 	if (key == KEY_SHIFT)
 		meta->key.shift = FALSE;

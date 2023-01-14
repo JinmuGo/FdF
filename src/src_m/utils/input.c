@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:24:06 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 12:36:13 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:56:05 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	assign_dot(char *line, t_map *map, int height)
 {
 	char	**split_arr;
-	int	i;
+	int		i;
 
 	split_arr = ft_split(line, ' ');
 	i = 0;
@@ -29,8 +29,9 @@ void	assign_dot(char *line, t_map *map, int height)
 		map->dot[map->total_len].axis[Y] = height - map->max.axis[Y] / 2;
 		map->dot[map->total_len].axis[Z] = ft_atoi(&split_arr[i][0]);
 		map->dot[map->total_len].painted = TRUE;
-		map->dot[map->total_len].color = init_color(map, map->dot[map->total_len]);
-		if (!map->mid.painted && is_mid_dot(map->max , i, height))
+		map->dot[map->total_len].color = \
+			init_color(map, map->dot[map->total_len]);
+		if (!map->mid.painted && is_mid_dot(map->max, i, height))
 			map->mid = map->dot[map->total_len];
 		i++;
 		map->total_len++;
@@ -42,8 +43,8 @@ int	cal_map(t_map *map, int fd)
 {
 	char	*line;
 	char	**split_arr;
-	int	line_len;
-	int	total_len;
+	int		line_len;
+	int		total_len;
 
 	total_len = 0;
 	line = get_next_line(fd);
@@ -54,7 +55,7 @@ int	cal_map(t_map *map, int fd)
 		line_len = cal_line_len(split_arr);
 		if (map->max.axis[X] == 0)
 			map->max.axis[X] = line_len;
-		if (map->max.axis[X] != line_len) // 일단 int로 casting map->max.axis[X]가 0일 수도 있으니.
+		if (map->max.axis[X] != line_len)
 			err_terminate_process(ERR_LINE_LEN);
 		total_len += line_len;
 		map->max.axis[Y] += 1;
@@ -66,7 +67,7 @@ int	cal_map(t_map *map, int fd)
 	return (total_len);
 }
 
-void    parsing_map(t_map *map, const char *path, int fd)
+void	parsing_map(t_map *map, const char *path, int fd)
 {
 	const int	map_size = cal_map(map, fd);
 	const int	reopen_fd = open(path, O_RDONLY);
@@ -92,10 +93,10 @@ void    parsing_map(t_map *map, const char *path, int fd)
 
 char	*get_map_name(const char *path)
 {
-	const char **path_arr = (const char **)ft_split(path, '/');
-	char *name;
-	int	i;
-	int	len;
+	const char	**path_arr = (const char **)ft_split(path, '/');
+	char		*name;
+	int			i;
+	int			len;
 
 	i = 0;
 	while (path_arr[i])
@@ -108,12 +109,11 @@ char	*get_map_name(const char *path)
 	return (name);
 }
 
-
 void	input_process(t_map *map, const char *path, int fd)
 {
 	map->name = get_map_name(path);
 	init_map(map);
 	path_error_handler(path);
-	parsing_map(map, path ,fd);
+	parsing_map(map, path, fd);
 	ft_printf("success map parsing! :)\n");
 }

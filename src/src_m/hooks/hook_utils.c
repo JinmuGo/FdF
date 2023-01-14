@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:51:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 12:53:26 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:40:12 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ int	success_terminate_process(t_meta *meta)
 {
 	mlx_destroy_window(meta->mlx.mlx, meta->mlx.win);
 	free(meta->map.dot);
-
 	exit(EXIT_SUCCESS);
 }
 
-void    key_init(t_key *key)
+void	key_init(t_key *key)
 {
-    key->dot = TRUE;
-    key->line = TRUE;
+	key->dot = TRUE;
+	key->line = TRUE;
 	key->planet = TRUE;
 	key->rotate = TRUE;
-    key->axis = FALSE;
+	key->axis = FALSE;
 	key->extra_line = FALSE;
 	key->extra_line2 = FALSE;
 	key->shift = FALSE;

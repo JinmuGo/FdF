@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:49:17 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/04 19:24:23 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 16:44:07 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_dot	mul3_mat(float matrix[3][3], t_dot dot)
 {
-	int	i;
-	int	j;
-	t_dot   result;
+	t_dot	result;
+	int		i;
+	int		j;
 
 	result = dot;
 	i = 0;
@@ -53,14 +53,14 @@ void	matrix3_init(float (*matrix)[3])
 	}
 }
 
-void    radian_init(float *rad, float angle[3])
+void	radian_init(float *rad, float angle[3])
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < 3)
-    {
-        rad[i] = angle[i] * M_PI / 180;
-        i++;
-    }
+	i = 0;
+	while (i < 3)
+	{
+		rad[i] = angle[i] * M_PI / 180;
+		i++;
+	}
 }
