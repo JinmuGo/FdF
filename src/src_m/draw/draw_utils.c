@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 16:01:34 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 16:34:29 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 17:06:23 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "color.h"
 #include "utils.h"
 #include "error.h"
+#include "draw.h"
 
 t_bool	invalid_dot(int x, int y)
 {

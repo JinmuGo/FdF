@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 16:38:51 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 17:13:33 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ void	key_view(int key, t_meta *meta)
 		meta->map.angle[X] = 30;
 		meta->map.angle[Y] = 330;
 		meta->map.angle[Z] = 30;
+	}
+	if (key == KEY_V)
+	{
+		meta->key.planet = FALSE;
+		meta->map.angle[X] = 90;
+		meta->map.angle[Y] = 0;
+		meta->map.angle[Z] = 0;
 	}
 	if (key == KEY_R)
 		meta->key.rotate = !meta->key.rotate;
