@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:24:06 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/11 16:45:33 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 12:36:13 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,28 @@ void    parsing_map(t_map *map, const char *path, int fd)
 	close(reopen_fd);
 }
 
+char	*get_map_name(const char *path)
+{
+	const char **path_arr = (const char **)ft_split(path, '/');
+	char *name;
+	int	i;
+	int	len;
+
+	i = 0;
+	while (path_arr[i])
+		i++;
+	len = ft_strlen(path_arr[i - 1]);
+	name = malloc(sizeof(char) * len);
+	allocate_error_handler(name);
+	ft_memcpy(name, path_arr[i - 1], len);
+	free_arr((void *)path_arr);
+	return (name);
+}
+
 
 void	input_process(t_map *map, const char *path, int fd)
 {
+	map->name = get_map_name(path);
 	init_map(map);
 	path_error_handler(path);
 	parsing_map(map, path ,fd);

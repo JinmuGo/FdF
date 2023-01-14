@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:01:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 16:41:17 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 13:09:53 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,15 @@ void	get_proper_scale(t_meta *meta, t_dot *projection);
 void	copy_dot(t_dot *src, t_dot *dst, int len);
 t_bool	invalid_dot(int x, int y);
 void	init_map(t_map *map);
+
+// print_status.c
+
+void    print_status(t_meta *meta);
+
+// print_utils.c
+
+void	print_nbr(t_mlx mlx, int x, int y, int nbr);
+void	print_str(t_mlx mlx, int x, int y, const char *str);
+char	*make_bool_str(t_bool bool);
 
 #endif

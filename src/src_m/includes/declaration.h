@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 23:06:35 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 12:53:09 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@
 
 # define LON 0
 # define LAT 1
+
+# define T 0
+# define B 1
+# define L 2
+# define R 3
 
 typedef struct s_mlx t_mlx;
 typedef struct s_img t_img;
@@ -82,9 +87,11 @@ struct s_key {
 	t_bool	extra_line;
 	t_bool	extra_line2;
 	t_bool	rotate;
+	t_bool	shift;
 };
 
 struct	s_map {
+	char	*name;
 	t_dot	*dot;
 	t_dot	axis[AXIS_SIZE];
 	t_dot	max;

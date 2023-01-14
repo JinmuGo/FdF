@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:22:56 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 20:49:44 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 12:21:16 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	draw_process(t_meta *meta, t_bool init)
 	edit_map(meta, projection, meta->map.total_len);
 	draw(meta, projection, init);
 	mlx_put_image_to_window(meta->mlx.mlx, meta->mlx.win, meta->img.img, 0, 0);
-	draw_status(meta);
+	print_status(meta);
 	// draw_keymap(meta); 추가예정.
 	free(projection);
 }

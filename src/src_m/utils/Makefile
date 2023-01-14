@@ -6,7 +6,7 @@
 #    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 08:31:25 by jgo               #+#    #+#              #
-#    Updated: 2023/01/11 16:55:21 by jgo              ###   ########.fr        #
+#    Updated: 2023/01/14 10:33:19 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ include $(TOPDIR)/config/color_rules.mk
 
 SRCS = error.c \
 		input_utils.c \
+		print_status.c \
+		print_utils.c \
 		input.c \
 		matrix.c \
 		utils.c \

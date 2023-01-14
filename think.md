@@ -21,6 +21,6 @@
 
 - [v] 지금은! xyz 버그 수정하는 중!
 - [v] refactoring 
-- [ ] planet
+- [v] planet
 - [ ] keymap을 띄워놓는 것을 구현할까!?
 

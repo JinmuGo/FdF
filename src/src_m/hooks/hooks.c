@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:48:38 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 23:22:44 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 12:57:04 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,35 @@
 #include "hooks.h"
 #include "draw.h"
 #include "utils.h"
+#include "event.h"
+#include "key_map.h"
 
 int	rotate_planet(t_meta *meta)
 {
 	if (!meta->key.rotate)
 		return (0);
-	meta->map.angle[Y] = rotate_angle(meta->map.angle[Y], 1.5);
+	if (meta->key.shift)
+		meta->map.angle[Y] = rotate_angle(meta->map.angle[Y], 1.5);
+	else
+		meta->map.angle[Y] = rotate_angle(meta->map.angle[Y], -1.5);
 	draw_process(meta, FALSE);
+	return (0);
+}
+
+int key_release(int key, t_meta *meta)
+{
+	if (key == KEY_SHIFT)
+		meta->key.shift = FALSE;
 	return (0);
 }
 
 void	hooks(t_meta *meta)
 {
-	key_hooks(meta);
-	mouse_hooks(meta);
+	mlx_hook(meta->mlx.win, KEY_PRESS, 0, key_press, meta);
+	mlx_hook(meta->mlx.win, KEY_RELEASE, 0, key_release, meta);
+	mlx_hook(meta->mlx.win, MOUSE_PRESS, 0, mouse_press, meta);
+	mlx_hook(meta->mlx.win, MOUSE_RELEASE, 0, mouse_release, meta);
+	mlx_hook(meta->mlx.win, MOTION_NOTIFY, 0, mouse_move, meta);
+	mlx_hook(meta->mlx.win, DESTROY_NOTIFY, 0, success_terminate_process, meta);
 	mlx_loop_hook(meta->mlx.mlx, rotate_planet, meta);
-	// mlx_loop_hook() 지구본이 빙글빙글 돌아가는 걸 만들자! 
 }

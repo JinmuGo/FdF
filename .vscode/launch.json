@@ -9,7 +9,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceFolder}/fdf",
-        "args": ["maps/MGDS_WHOLE_WORLD_OCEAN0_M.fdf"],
+        "args": ["maps/50-4.fdf"],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_map.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:45:29 by jgo               #+#    #+#             */
-/*   Updated: 2022/12/28 18:47:54 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 12:52:42 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define KEY_9       25
 # define KEY_0       29
 # define KEY_SUM     30
+# define KEY_PLUS	24
+# define KEY_MINUS	27
 # define KEY_RES     44
 # define KEY_SUM2    69
 # define KEY_RES2    78
@@ -59,6 +61,7 @@
 # define KEY_DOWN    125
 # define KEY_UP      126
 # define KEY_CTRL    256
+# define KEY_SHIFT    257
 # define KEY_CMD     259
 
 #endif

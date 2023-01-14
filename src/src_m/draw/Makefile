@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+         #
+#    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 08:31:25 by jgo               #+#    #+#              #
-#    Updated: 2023/01/12 20:06:49 by jgo              ###   ########.fr        #
+#    Updated: 2023/01/14 10:24:30 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRCS = edit_map.c \
 		map_utils.c \
 		draw_map.c \
 		draw_utils.c \
-		draw_status.c \
 		draw_mod.c \
 		draw.c 
 

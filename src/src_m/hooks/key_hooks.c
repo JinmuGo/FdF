@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 23:14:38 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 13:15:15 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "hooks.h"
 #include "utils.h"
 #include "draw.h"
-#include "event.h"
 
 void    key_rotate(int key, t_meta *meta)
 {
@@ -44,16 +43,21 @@ void    key_option(int key, t_meta *meta)
     if (key == KEY_3)
         meta->key.axis = !meta->key.axis;
     if (key == KEY_P)
+    {
+        meta->map.angle[Z] = 0;
         meta->key.planet = !meta->key.planet;
+    }
     if (key == KEY_E)
         meta->key.extra_line = !meta->key.extra_line;
-    if (key == KEY_D)
-        meta->key.extra_line2 = !meta->key.extra_line2;
+    if (key == KEY_PLUS)
+        meta->map.z_divisor /= 1.5;
+    if (key == KEY_MINUS)
+        meta->map.z_divisor *= 1.5;
 }
 
 void    key_view(int key, t_meta *meta)
 {
-    if (key == KEY_I)
+    if (key == KEY_I && !meta->key.planet)
     {
         meta->map.angle[X] = 30;
         meta->map.angle[Y] = 330;
@@ -63,27 +67,29 @@ void    key_view(int key, t_meta *meta)
         meta->key.rotate = !meta->key.rotate;
 }
 
+void    key_scale(int key, t_meta *meta)
+{
+    if (key == KEY_J)
+        meta->map.scale /= 1.5;
+    if (key == KEY_K)
+        meta->map.scale *= 1.5;
+}
+
 int	key_press(int key, t_meta *meta)
 {
     if (key == KEY_ESC)
         success_terminate_process(meta);
+    if (key == KEY_SHIFT)
+        meta->key.shift = TRUE;
+    if (key == KEY_F && !meta->key.planet)
+    {
+        draw_process(meta, TRUE);
+        return (0);
+    }
     key_rotate(key, meta);
     key_option(key, meta);
     key_view(key, meta);
+    key_scale(key, meta);
     draw_process(meta, FALSE);
     return (0);
 }
-
-void    key_hooks(t_meta *meta)
-{
-    mlx_hook(meta->mlx.win, KEY_PRESS, 0, key_press, meta);
-	mlx_hook(meta->mlx.win, DESTROY_NOTIFY, 0, success_terminate_process, meta);
-	// mlx_hook(meta->mlx.win, KEY_RELEASE, 0, key_release, &meta);
-}
-
-
-// int key_release(int key, t_meta *meta)
-// {
-
-//     return (0);
-// }

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:33 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/13 21:46:10 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 10:41:43 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "declaration.h"
 #include "draw.h"
 #include "utils.h"
-#include "event.h"
 
 int mouse_press(int button, int x, int y, t_meta *meta)
 {
@@ -71,11 +70,4 @@ int mouse_move(int x, int y, t_meta *meta)
 	meta->mouse.prev.axis[X] = x;
 	meta->mouse.prev.axis[Y] = y;
     return (0);
-}
-
-void	mouse_hooks(t_meta *meta)
-{
-	mlx_hook(meta->mlx.win, MOUSE_PRESS, 0, mouse_press, meta);
-	mlx_hook(meta->mlx.win, MOUSE_RELEASE, 0, mouse_release, meta);
-	mlx_hook(meta->mlx.win, MOTION_NOTIFY, 0, mouse_move, meta);
 }
