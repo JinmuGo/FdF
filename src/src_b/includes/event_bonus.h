@@ -6,12 +6,12 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:35:34 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 18:42:23 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 19:11:10 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EVENT_BONUS_fH
-# define EVENT_BONUS_fH
+#ifndef EVENT_BONUS_H
+# define EVENT_BONUS_H
 
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
