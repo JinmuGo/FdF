@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FDF.h                                            :+:      :+:    :+:   */
+/*   matrix_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 16:17:14 by jgo               #+#    #+#             */
-/*   Updated: 2022/12/13 14:34:28 by jgo              ###   ########.fr       */
+/*   Created: 2023/01/04 17:18:29 by jgo               #+#    #+#             */
+/*   Updated: 2023/01/14 18:42:54 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_BONUS_H
-# define FDF_BONUS_H
-# include <fcntl.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <math.h>
-# include <unistd.h>
-# include <mlx.h>
+#ifndef MATRIX_BONUS_H
+# define MATRIX_BONUS_H
 
-# include "ft_printf.h"
-# include "libft.h"
+t_dot	mul3_mat(float matrix[3][3], t_dot dot);
+void	matrix3_init(float (*matrix)[3]);
+void	radian_init(float *rad, float angle[3]);
 
 #endif

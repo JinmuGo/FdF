@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FDF.h                                            :+:      :+:    :+:   */
+/*   input_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 16:17:14 by jgo               #+#    #+#             */
-/*   Updated: 2022/12/13 14:34:28 by jgo              ###   ########.fr       */
+/*   Created: 2022/12/25 14:29:01 by jgo               #+#    #+#             */
+/*   Updated: 2023/01/14 18:42:43 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_BONUS_H
-# define FDF_BONUS_H
-# include <fcntl.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <math.h>
-# include <unistd.h>
-# include <mlx.h>
+#ifndef INPUT_BONUS_H
+# define INPUT_BONUS_H
 
-# include "ft_printf.h"
-# include "libft.h"
+// input.c
+void	input_process(t_map *map, const char *path, int fd);
 
 #endif

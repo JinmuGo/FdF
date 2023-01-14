@@ -1,38 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_bonus.c                                        :+:      :+:    :+:   */
+/*   matrix_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 21:14:46 by jgo               #+#    #+#             */
+/*   Created: 2023/01/04 16:49:17 by jgo               #+#    #+#             */
 /*   Updated: 2023/01/14 17:49:12 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf_bonus.h"
-#include "error_bonus.h"
 #include "declaration_bonus.h"
-#include "input_bonus.h"
-#include "color_bonus.h"
-#include "draw_bonus.h"
-#include "event_bonus.h"
-#include "hooks_bonus.h"
-#include "utils_bonus.h"
 
-int	main(int ac, char **av)
+t_dot	mul3_mat(float matrix[3][3], t_dot dot)
 {
-	const char	*path = av[1];
-	const int	init_fd = open(path, O_RDONLY);
-	t_meta		meta;
+	t_dot	result;
+	int		i;
+	int		j;
 
-	input_error_handler(ac, init_fd);
-	input_process(&meta.map, path, init_fd);
-	init_metadata(&meta);
-	draw_process(&meta, TRUE);
-	hooks(&meta);
-	mlx_loop(meta.mlx.mlx);
-	free(meta.map.dot);
-	free(meta.map.name);
-	return (EXIT_SUCCESS);
+	result = dot;
+	i = 0;
+	while (i < 3)
+	{
+		result.axis[i] = 0;
+		result.color = dot.color;
+		j = 0;
+		while (j < 3)
+		{
+			result.axis[i] += matrix[i][j] * dot.axis[j];
+			j++;
+		}
+		i++;
+	}
+	return (result);
+}
+
+void	matrix3_init(float (*matrix)[3])
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 3)
+	{
+		j = 0;
+		while (j < 3)
+		{
+			matrix[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
+}
+
+void	radian_init(float *rad, float angle[3])
+{
+	int	i;
+
+	i = 0;
+	while (i < 3)
+	{
+		rad[i] = angle[i] * M_PI / 180;
+		i++;
+	}
 }
