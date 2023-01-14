@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 17:13:33 by jgo              ###   ########.fr       */
+/*   Updated: 2023/01/14 17:22:16 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	key_option(int key, t_meta *meta)
 	}
 	if (key == KEY_E)
 		meta->key.extra_line = !meta->key.extra_line;
+	if (key == KEY_D)
+		meta->key.extra_line2 = !meta->key.extra_line2;
 	if (key == KEY_PLUS)
 		meta->map.z_divisor /= 1.5;
 	if (key == KEY_MINUS)
