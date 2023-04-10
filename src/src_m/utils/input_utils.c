@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:13:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 16:55:44 by jgo              ###   ########.fr       */
+/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ t_bool	is_valid_dot(char *dot)
 	while (ft_isdigit(dot[i]))
 		i++;
 	if (i)
-		return (TRUE);
+		return (FT_TRUE);
 	else
-		return (FALSE);
+		return (FT_FALSE);
 }
 
 void	cal_z(t_map *map, char **split_arr)
@@ -64,7 +64,7 @@ t_bool	is_mid_dot(t_dot max, int width, int height)
 	const int	mid_idx_y = (int)ceilf(max.axis[Y] / 2);
 
 	if (width == mid_idx_x && height == mid_idx_y)
-		return (TRUE);
+		return (FT_TRUE);
 	else
-		return (FALSE);
+		return (FT_FALSE);
 }

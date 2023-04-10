@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:24:06 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 17:49:12 by jgo              ###   ########.fr       */
+/*   Updated: 2023/04/10 14:11:25 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	assign_dot(char *line, t_map *map, int height)
 		map->dot[map->total_len].axis[X] = i - map->max.axis[X] / 2;
 		map->dot[map->total_len].axis[Y] = height - map->max.axis[Y] / 2;
 		map->dot[map->total_len].axis[Z] = ft_atoi(&split_arr[i][0]);
-		map->dot[map->total_len].painted = TRUE;
+		map->dot[map->total_len].painted = FT_TRUE;
 		map->dot[map->total_len].color = \
 			init_color(map, map->dot[map->total_len]);
 		if (!map->mid.painted && is_mid_dot(map->max, i, height))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 16:01:34 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 17:49:12 by jgo              ###   ########.fr       */
+/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 t_bool	invalid_dot(int x, int y)
 {
 	if (x < 0 || x > WIN_WIDTH)
-		return (TRUE);
+		return (FT_TRUE);
 	if (y < 0 || y > WIN_HEIGHT)
-		return (TRUE);
-	return (FALSE);
+		return (FT_TRUE);
+	return (FT_FALSE);
 }
 
 int	lerp(int p1, int p2, float ratio)

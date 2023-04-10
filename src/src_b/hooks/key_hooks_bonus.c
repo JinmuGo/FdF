@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hooks_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:22 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 17:49:12 by jgo              ###   ########.fr       */
+/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	key_view(int key, t_meta *meta)
 	}
 	if (key == KEY_V)
 	{
-		meta->key.planet = FALSE;
+		meta->key.planet = FT_FALSE;
 		meta->map.angle[X] = 90;
 		meta->map.angle[Y] = 0;
 		meta->map.angle[Z] = 0;
@@ -89,16 +89,16 @@ int	key_press(int key, t_meta *meta)
 	if (key == KEY_ESC)
 		success_terminate_process(meta);
 	if (key == KEY_SHIFT)
-		meta->key.shift = TRUE;
+		meta->key.shift = FT_TRUE;
 	if (key == KEY_F && !meta->key.planet)
 	{
-		draw_process(meta, TRUE);
+		draw_process(meta, FT_TRUE);
 		return (0);
 	}
 	key_rotate(key, meta);
 	key_option(key, meta);
 	key_view(key, meta);
 	key_scale(key, meta);
-	draw_process(meta, FALSE);
+	draw_process(meta, FT_FALSE);
 	return (0);
 }

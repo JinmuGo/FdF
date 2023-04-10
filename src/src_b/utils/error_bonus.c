@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:17:46 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 17:49:12 by jgo              ###   ########.fr       */
+/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_bool	verify_path(const char *path)
 	int			i;
 
 	if (!split_arr)
-		return (FALSE);
+		return (FT_FALSE);
 	i = 0;
 	while (split_arr[i + 1])
 		i++;
@@ -52,9 +52,9 @@ static t_bool	verify_path(const char *path)
 	while (surfix_arr[i + 1])
 		i++;
 	if (ft_strncmp(surfix_arr[i], "fdf", 4) == 0)
-		return_val = TRUE;
+		return_val = FT_TRUE;
 	else
-		return_val = FALSE;
+		return_val = FT_FALSE;
 	free_arr((void *)split_arr);
 	free_arr(surfix_arr);
 	return (return_val);
