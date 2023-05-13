@@ -1,7 +1,3 @@
-[submodule "make_config"]
-	path = make_config
-	url = https://github.com/jgodv/make_config
-	branch = c
 [submodule "lib/libft"]
 	path = lib/libft
 	url = https://github.com/jgodv/libft
