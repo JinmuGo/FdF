@@ -2,3 +2,11 @@
 	path = make_config
 	url = https://github.com/jgodv/make_config
 	branch = c
+[submodule "lib/libft"]
+	path = lib/libft
+	url = https://github.com/jgodv/libft
+	branch = main
+[submodule "lib/ft_printf"]
+	path = lib/ft_printf
+	url = https://github.com/jgodv/ft_printf
+	branch = main
