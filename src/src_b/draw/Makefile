@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+         #
+#    By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 08:31:25 by jgo               #+#    #+#              #
-#    Updated: 2023/01/14 18:46:27 by jgo              ###   ########.fr        #
+#    Updated: 2023/05/13 19:25:43 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ ifndef TOPDIR
 		TOPDIR = $(abspath ../../../)
 endif
 
-include $(TOPDIR)/config/Rules.mk
-include $(TOPDIR)/config/color_rules.mk
+include $(TOPDIR)/make_config/Rules.mk
+include $(TOPDIR)/make_config/color_rules.mk
 
 SRCS = edit_map_bonus.c \
 		map_utils_bonus.c \

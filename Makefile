@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
+#    By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 20:10:46 by jgo               #+#    #+#              #
-#    Updated: 2022/12/25 23:57:38 by jgo              ###   ########.fr        #
+#    Updated: 2023/05/13 19:25:43 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-include ./config/Rules.mk
-include ./config/color_rules.mk
+include ./make_config/Rules.mk
+include ./make_config/color_rules.mk
 
 FDF = fdf
 NAME = $(FDF)

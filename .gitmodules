@@ -1,0 +1,4 @@
+[submodule "make_config"]
+	path = make_config
+	url = https://github.com/jgodv/make_config
+	branch = c

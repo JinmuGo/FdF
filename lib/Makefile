@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgo <jgo@student.42seoul.kr>               +#+  +:+       +#+         #
+#    By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 13:42:33 by jgo               #+#    #+#              #
-#    Updated: 2023/04/10 14:28:12 by jgo              ###   ########.fr        #
+#    Updated: 2023/05/13 19:25:43 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ ifndef TOPDIR
 		TOPDIR = $(abspath ..)
 endif
 
-include $(TOPDIR)/config/Rules.mk
-include $(TOPDIR)/config/color_rules.mk
+include $(TOPDIR)/make_config/Rules.mk
+include $(TOPDIR)/make_config/color_rules.mk
 
 LIBS = fdf_libft fdf_ft_printf minilibx_macos
 
