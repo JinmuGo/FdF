@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   declaration_bonus.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 15:09:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 18:41:56 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:35 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,24 +70,24 @@ struct s_img {
 struct	s_dot {
 	float	axis[3];
 	int		color;
-	t_bool	painted;
+	bool	painted;
 };
 
 struct	s_mouse {
-	t_bool	left_click;
-	t_bool	right_click;
+	bool	left_click;
+	bool	right_click;
 	t_dot	prev;
 };
 
 struct s_key {
-	t_bool	dot;
-	t_bool	line;
-	t_bool	axis;
-	t_bool	planet;
-	t_bool	extra_line;
-	t_bool	extra_line2;
-	t_bool	rotate;
-	t_bool	shift;
+	bool	dot;
+	bool	line;
+	bool	axis;
+	bool	planet;
+	bool	extra_line;
+	bool	extra_line2;
+	bool	rotate;
+	bool	shift;
 };
 
 struct	s_map {

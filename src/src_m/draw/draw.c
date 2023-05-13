@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:22:56 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 16:57:59 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:35 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	draw_background(t_meta *meta, int back_color)
 	}	
 }
 
-void	draw_process(t_meta *meta, t_bool init)
+void	draw_process(t_meta *meta, bool init)
 {
 	t_dot	*projection;
 

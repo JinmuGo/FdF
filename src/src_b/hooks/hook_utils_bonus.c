@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:51:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@ int	success_terminate_process(t_meta *meta)
 
 void	key_init(t_key *key)
 {
-	key->dot = FT_TRUE;
-	key->line = FT_TRUE;
-	key->planet = FT_TRUE;
-	key->rotate = FT_TRUE;
-	key->axis = FT_FALSE;
-	key->extra_line = FT_FALSE;
-	key->extra_line2 = FT_FALSE;
-	key->shift = FT_FALSE;
+	key->dot = true;
+	key->line = true;
+	key->planet = true;
+	key->rotate = true;
+	key->axis = false;
+	key->extra_line = false;
+	key->extra_line2 = false;
+	key->shift = false;
 }
 
 void	mouse_init(t_mouse *mouse)
 {
-	mouse->left_click = FT_FALSE;
-	mouse->right_click = FT_FALSE;
+	mouse->left_click = false;
+	mouse->right_click = false;
 	ft_bzero(&mouse->prev.axis, 3 * sizeof(float));
 }
 

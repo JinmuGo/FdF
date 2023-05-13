@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:10:04 by jgo               #+#    #+#             */
-/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "draw_bonus.h"
 #include "color_bonus.h"
 
-t_bool	get_profit_scale(t_dot *dot, int len)
+bool	get_profit_scale(t_dot *dot, int len)
 {
 	int	i;
 
@@ -23,13 +23,13 @@ t_bool	get_profit_scale(t_dot *dot, int len)
 	{
 		if (dot[i].axis[X] < (MARGIN) || \
 			dot[i].axis[X] > (WIN_WIDTH - MARGIN))
-			return (FT_FALSE);
+			return (false);
 		if (dot[i].axis[Y] < MARGIN || \
 			dot[i].axis[Y] > (WIN_HEIGHT - MARGIN))
-			return (FT_FALSE);
+			return (false);
 		i++;
 	}
-	return (FT_TRUE);
+	return (true);
 }
 
 void	copy_dot(t_dot *src, t_dot *dst, int len)
@@ -84,7 +84,7 @@ void	init_map(t_map *map)
 	map->src.axis[X] = WIN_WIDTH / 2;
 	map->src.axis[Y] = WIN_HEIGHT / 2;
 	map->src.axis[Z] = 0;
-	map->mid.painted = FT_FALSE;
+	map->mid.painted = false;
 	map->scale = 1;
 	map->radius = map->max.axis[X] / (M_PI * 2);
 	ft_bzero(&map->max.axis, 3 * sizeof(float));

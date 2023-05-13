@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:13:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "declaration_bonus.h"
 #include "error_bonus.h"
 
-t_bool	is_valid_dot(char *dot)
+bool	is_valid_dot(char *dot)
 {
 	int	i;
 
@@ -24,9 +24,9 @@ t_bool	is_valid_dot(char *dot)
 	while (ft_isdigit(dot[i]))
 		i++;
 	if (i)
-		return (FT_TRUE);
+		return (true);
 	else
-		return (FT_FALSE);
+		return (false);
 }
 
 void	cal_z(t_map *map, char **split_arr)
@@ -58,13 +58,13 @@ int	cal_line_len(char **split_arr)
 	return (len);
 }
 
-t_bool	is_mid_dot(t_dot max, int width, int height)
+bool	is_mid_dot(t_dot max, int width, int height)
 {
 	const int	mid_idx_x = (int)floorf(max.axis[X] / 2);
 	const int	mid_idx_y = (int)ceilf(max.axis[Y] / 2);
 
 	if (width == mid_idx_x && height == mid_idx_y)
-		return (FT_TRUE);
+		return (true);
 	else
-		return (FT_FALSE);
+		return (false);
 }

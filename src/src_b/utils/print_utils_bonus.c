@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:24:23 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 17:49:12 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:35 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_nbr(t_mlx mlx, int x, int y, int nbr)
 	free (str);
 }
 
-char	*make_bool_str(t_bool bool)
+char	*make_bool_str(bool bool)
 {
 	if (bool)
 		return ("ON");

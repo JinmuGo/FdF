@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:17:46 by jgo               #+#    #+#             */
-/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ void	allocate_error_handler(void	*ptr)
 		err_terminate_process(ERR_ALLOCATE);
 }
 
-static t_bool	verify_path(const char *path)
+static bool	verify_path(const char *path)
 {
 	const char	**split_arr = (const char **)ft_split(path, '/');
 	char		**surfix_arr;
-	t_bool		return_val;
+	bool		return_val;
 	int			i;
 
 	if (!split_arr)
-		return (FT_FALSE);
+		return (false);
 	i = 0;
 	while (split_arr[i + 1])
 		i++;
@@ -52,9 +52,9 @@ static t_bool	verify_path(const char *path)
 	while (surfix_arr[i + 1])
 		i++;
 	if (ft_strncmp(surfix_arr[i], "fdf", 4) == 0)
-		return_val = FT_TRUE;
+		return_val = true;
 	else
-		return_val = FT_FALSE;
+		return_val = false;
 	free_arr((void *)split_arr);
 	free_arr(surfix_arr);
 	return (return_val);

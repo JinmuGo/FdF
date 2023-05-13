@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 16:01:34 by jgo               #+#    #+#             */
-/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 #include "error.h"
 #include "draw.h"
 
-t_bool	invalid_dot(int x, int y)
+bool	invalid_dot(int x, int y)
 {
 	if (x < 0 || x > WIN_WIDTH)
-		return (FT_TRUE);
+		return (true);
 	if (y < 0 || y > WIN_HEIGHT)
-		return (FT_TRUE);
-	return (FT_FALSE);
+		return (true);
+	return (false);
 }
 
 int	lerp(int p1, int p2, float ratio)

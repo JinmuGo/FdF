@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:48:38 by jgo               #+#    #+#             */
-/*   Updated: 2023/04/10 14:11:38 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ int	rotate_planet(t_meta *meta)
 		meta->map.angle[Y] = rotate_angle(meta->map.angle[Y], 1.5);
 	else
 		meta->map.angle[Y] = rotate_angle(meta->map.angle[Y], -1.5);
-	draw_process(meta, FT_FALSE);
+	draw_process(meta, false);
 	return (0);
 }
 
 int	key_release(int key, t_meta *meta)
 {
 	if (key == KEY_SHIFT)
-		meta->key.shift = FT_FALSE;
+		meta->key.shift = false;
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgo <jgo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:55:45 by jgo               #+#    #+#             */
-/*   Updated: 2023/01/14 17:49:12 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:32:35 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	draw_axis(t_meta *meta)
 	free(axis_projection);
 }
 
-void	draw(t_meta *meta, t_dot *projection, t_bool init)
+void	draw(t_meta *meta, t_dot *projection, bool init)
 {
 	if (init)
 		get_proper_scale(meta, projection);
