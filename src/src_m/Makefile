@@ -23,7 +23,6 @@ NAME = $(FDF)
 MLX_PROCESS = install_name_tool -change libmlx.dylib $(TOPDIR)/lib/libmlx.dylib $(NAME)
 CPPFLAGS = -I$(TOPDIR)/includes -I./includes
 LDFLAGS = -L$(TOPDIR)/lib
-LDLIBS = -lftprintf -lft -lmlx -framework OpenGL -framework AppKit
 
 DIRS = draw hooks utils
 LIBS = $(addsuffix .a, $(addprefix lib/, $(DIRS)))

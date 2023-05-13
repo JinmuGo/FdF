@@ -6,7 +6,7 @@
 #    By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 08:31:25 by jgo               #+#    #+#              #
-#    Updated: 2023/05/13 19:25:43 by jgo              ###   ########.fr        #
+#    Updated: 2023/05/13 21:33:21 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ NAME = utils.a
 
 CPPFLAGS = -I$(TOPDIR)/includes -I../includes
 LDFLAGS = -L$(TOPDIR)/lib
-LDLIBS = -lftprintf -lft -lmlx -framework OpenGL -framework AppKit
 
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)

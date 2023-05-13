@@ -26,7 +26,6 @@ NAME = hooks_bonus.a
 
 CPPFLAGS = -I$(TOPDIR)/includes -I../includes
 LDFLAGS = -L$(TOPDIR)/lib
-LDLIBS = -lftprintf -lft -lmlx -framework OpenGL -framework AppKit
 
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)

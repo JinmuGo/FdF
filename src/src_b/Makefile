@@ -6,7 +6,7 @@
 #    By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 14:05:59 by jgo               #+#    #+#              #
-#    Updated: 2023/05/13 19:25:43 by jgo              ###   ########.fr        #
+#    Updated: 2023/05/13 21:32:43 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ NAME = $(FDF)
 MLX_PROCESS = install_name_tool -change libmlx.dylib $(TOPDIR)/lib/libmlx.dylib $(NAME)
 CPPFLAGS = -I$(TOPDIR)/includes -I./includes
 LDFLAGS = -L$(TOPDIR)/lib
-LDLIBS = -lftprintf -lft -lmlx -framework OpenGL -framework AppKit
 
 DIRS = draw hooks utils
 LIBS = $(addsuffix _bonus.a, $(addprefix lib/, $(DIRS)))
