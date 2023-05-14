@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:43:33 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/13 19:32:57 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/14 11:22:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int	mouse_press(int button, int x, int y, t_meta *meta)
 {
-	x++;
-	y++;
+	(void) x;
+	(void) y;
 	if (button == 1 && meta->mouse.left_click == false)
 		meta->mouse.left_click = true;
 	if (button == 2 && meta->mouse.right_click == false)
@@ -41,8 +41,8 @@ int	mouse_press(int button, int x, int y, t_meta *meta)
 
 int	mouse_release(int button, int x, int y, t_meta *meta)
 {
-	x++;
-	y++;
+	(void)x;
+	(void)y;
 	if (button == 1 && meta->mouse.left_click)
 		meta->mouse.left_click = false;
 	if (button == 2 && meta->mouse.right_click)
