@@ -6,7 +6,7 @@
 #    By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 08:31:25 by jgo               #+#    #+#              #
-#    Updated: 2023/05/13 19:25:43 by jgo              ###   ########.fr        #
+#    Updated: 2023/05/27 19:20:22 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ ifndef TOPDIR
 		TOPDIR = $(abspath ../../../)
 endif
 
-include $(TOPDIR)/make_config/Rules.mk
-include $(TOPDIR)/make_config/color_rules.mk
+include $(TOPDIR)/make_config/src/Rules.mk
+include $(TOPDIR)/make_config/com/ColorRules.mk
 
 SRCS = edit_map.c \
 		map_utils.c \

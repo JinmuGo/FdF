@@ -6,12 +6,12 @@
 #    By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 20:10:46 by jgo               #+#    #+#              #
-#    Updated: 2023/05/13 19:38:55 by jgo              ###   ########.fr        #
+#    Updated: 2023/05/27 19:22:46 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-include ./make_config/Rules.mk
-include ./make_config/color_rules.mk
+include ./make_config/src/Rules.mk
+include ./make_config/com/ColorRules.mk
 
 FDF = fdf
 NAME = $(FDF)
