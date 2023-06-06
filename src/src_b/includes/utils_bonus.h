@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:01:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/13 19:32:35 by jgo              ###   ########.fr       */
+/*   Updated: 2023/06/06 15:43:46 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void	print_status(t_meta *meta);
 
 void	print_nbr(t_mlx mlx, int x, int y, int nbr);
 void	print_str(t_mlx mlx, int x, int y, const char *str);
-char	*make_bool_str(bool bool);
+char	*make_bool_str(bool args);
 
 #endif

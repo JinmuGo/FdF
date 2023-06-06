@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:24:23 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/13 19:32:35 by jgo              ###   ########.fr       */
+/*   Updated: 2023/06/06 15:43:40 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	print_nbr(t_mlx mlx, int x, int y, int nbr)
 	free (str);
 }
 
-char	*make_bool_str(bool bool)
+char	*make_bool_str(bool args)
 {
-	if (bool)
+	if (args)
 		return ("ON");
 	else
 		return ("OFF");
