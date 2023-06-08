@@ -6,7 +6,3 @@
 	path = lib/ft_printf
 	url = https://github.com/jgodv/ft_printf
 	branch = main
-[submodule "make_config"]
-	path = make_config
-	url = https://github.com/jgodv/make_config
-	branch = c_graphic
