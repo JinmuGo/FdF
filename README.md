@@ -74,6 +74,8 @@ The `.fdf` map file should consist of space-separated integers representing heig
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 ```
 
+<img width="1552" alt="42" src="https://github.com/user-attachments/assets/1eb99d09-3df4-481f-9d61-ab8c5ea38613" />
+
 ## Controls
 
 | Key             | Action                                              |
