@@ -55,6 +55,37 @@ void	print_mod(t_mlx mlx, int *margin, t_key key)
 	print_str(mlx, margin[L] + 80, margin[B], make_bool_str(key.shift));
 }
 
+void	print_keymap(t_mlx mlx, int *margin)
+{
+	print_str(mlx, margin[L], margin[B], "KEYMAP");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "1 : dot ON/OFF");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "2 : line ON/OFF");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "3 : axis ON/OFF");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "E : extra_line_L ON/OFF");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "D : extra_line_R ON/OFF");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "P : planet mode");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "R : rotate ON/OFF");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "Z/X/A/S/Q/W : rotate");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "+/- : scale");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "J/K : scale");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "I/V : view");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "F : refresh");
+	margin[B] += 30;
+	print_str(mlx, margin[L], margin[B], "ESC : exit");
+}
+
 void	print_status(t_meta *meta)
 {
 	int	margin[4];
@@ -70,4 +101,6 @@ void	print_status(t_meta *meta)
 	margin[B] += 50;
 	print_str(meta->mlx, margin[L], margin[B], "MOD STATUS");
 	print_mod(meta->mlx, margin, meta->key);
+	margin[B] += 50;
+	print_keymap(meta->mlx, margin);
 }

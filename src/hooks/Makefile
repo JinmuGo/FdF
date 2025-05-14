@@ -11,22 +11,18 @@
 # **************************************************************************** #
 
 ifndef TOPDIR
-		TOPDIR = $(abspath ../../../)
+		TOPDIR = $(abspath ../../)
 endif
 
 include $(TOPDIR)/make_config/src/Rules.mk
 include $(TOPDIR)/make_config/com/ColorRules.mk
 
-SRCS = error_bonus.c \
-		input_utils_bonus.c \
-		print_status_bonus.c \
-		print_utils_bonus.c \
-		input_bonus.c \
-		matrix_bonus.c \
-		utils_bonus.c \
-		color_bonus.c
+SRCS = hook_utils.c \
+		key_hooks.c \
+		mouse_hooks.c \
+		hooks.c
 
-NAME = utils_bonus.a
+NAME = hooks.a
 
 CPPFLAGS = -I$(TOPDIR)/includes -I../includes
 LDFLAGS = -L$(TOPDIR)/lib
@@ -43,10 +39,10 @@ all bonus :
 $(NAME): $(OBJS)
 	$(Q)$(call color_printf,$(GREEN),$(NAME),📚 archive object)
 	$(AR) $(ARFLAGS) $@ $^
-	$(Q)$(MAKE) files="$(NAME)" src_dir=`pwd` dst_dir=$(TOPDIR)/src/src_b/lib link_files
+	$(Q)$(MAKE) files="$(NAME)" src_dir=`pwd` dst_dir=$(TOPDIR)/src/lib link_files
 	
 clean:
-	$(Q)$(MAKE) files="$(NAME)" src_dir=`pwd` dst_dir=$(TOPDIR)/src/src_b/lib unlink_files
+	$(Q)$(MAKE) files="$(NAME)" src_dir=`pwd` dst_dir=$(TOPDIR)/src/lib unlink_files
 	$(Q)$(call color_printf,$(RED),$(NAME),🗑️  remove Objects && Dependency file)
 	$(RM) $(OBJS) $(DEPS)
 

@@ -118,5 +118,6 @@ struct s_meta {
 // debug
 
 void	print_dot(t_dot *dot, int total_len);
+void	print_keymap(t_mlx mlx, int *margin);
 
 #endif
