@@ -1,5 +1,7 @@
 # FdF
 
+![fdf](https://github.com/user-attachments/assets/72f71fe2-f3aa-4912-b802-f6d27f459e45)
+
 **FdF** is a 42cursus graphics project that reads a 3D height map from a file and renders a 2D wireframe projection using the MiniLibX graphics library. It is an introduction to basic computer graphics, coordinate transformations, and user interaction.
 
 ## Features
@@ -18,7 +20,7 @@
 ## Folder Structure
 
 ```text
-.
+src/
 ├── fdf.c               # Entry point of the program
 ├── draw/               # Drawing logic (map rendering, projection, edit)
 ├── hooks/              # Event handling (keyboard, mouse, etc.)
